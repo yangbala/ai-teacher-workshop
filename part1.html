@@ -34,25 +34,24 @@ ul,ol{padding-left:22px}li{margin:4px 0}
 .cards,.parts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin:12px 0}
 .card{display:flex;flex-direction:column;gap:4px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--card);text-decoration:none;color:var(--ink)}
 .card:hover{border-color:var(--g)}.card b{color:var(--g);font-size:17px}.card span{font-size:14px;color:var(--muted)}
+.cite{font-size:.72em;line-height:0;margin-left:1px}.cite a{text-decoration:none;font-weight:700}
+.refs{font-size:14px;color:var(--muted)}.refs li{margin:6px 0;scroll-margin-top:70px}.refs li:target{background:var(--soft);border-radius:6px}
+h2{scroll-margin-top:64px}
 .end{text-align:center}.big p{font-size:clamp(22px,4vw,32px);font-weight:900;color:var(--g);margin:.3em 0}
 .pager{display:flex;justify-content:space-between;gap:10px;margin-top:30px;flex-wrap:wrap}
 .pager a{padding:10px 16px;border:1px solid var(--line);border-radius:10px;background:var(--card);text-decoration:none;font-weight:700}
 footer{text-align:center;font-size:13px;color:var(--muted);padding:20px 16px 40px}
-</style></head><body><nav class="topnav"><a href="index.html" class="">首頁</a><a href="part1.html" class="on">一、AI 素養</a><a href="part2.html" class="">二、提示詞構建心法</a><a href="part3.html" class="">三、教材設計與論文寫作</a><button class="theme" id="theme" type="button">🌓 系統</button></nav><header class="hero"><div class="hin"><p class="eyebrow">國立虎尾科技大學｜教師工作坊教材</p><h1>一、AI 素養</h1><p class="lead">AI 怎麼產生答案、學生用 AI 會怎樣，以及兩個現場實習：投票網頁、Agent 部署。</p></div></header><main><section><h2 id="1-3"><span>1-3</span>這份教材的三個部分</h2>
-<blockquote>
-<p>第一部分談 AI 素養，也就是怎麼用才不傷學習；第二部分談提示詞構建心法；第三部分是 AI 驅動教材設計與論文寫作。第一部分先從動手開始。</p>
-</blockquote>
-</section><section><h2 id="1-4"><span>1-4</span>現場實習：用 AI 做一個投票網頁</h2>
-<blockquote>
-<p>第一個實習，是用 AI 做一個課堂投票網頁。網頁長這樣：大標題、題目說明、上方一排切換題目的按鈕、每個選項一條長條，旁邊顯示百分比和票數，還有已收到票數和「票數歸零」。QR Code 先不用。</p>
-<p>下面的提示詞已經把三題填好，直接複製貼上就能做出來。先不用管它為什麼這樣寫，第二部分 2-11 會用一張表回頭拆解。</p>
-</blockquote>
-<p><strong>動手做</strong></p>
+</style></head><body><nav class="topnav"><a href="index.html" class="">首頁</a><a href="part1.html" class="on">一、AI 素養</a><a href="part2.html" class="">二、提示詞構建心法</a><a href="part3.html" class="">三、教材設計與論文寫作</a><button class="theme" id="theme" type="button">🌓 系統</button></nav><header class="hero"><div class="hin"><p class="eyebrow">國立虎尾科技大學｜教師工作坊教材</p><h1>一、AI 素養</h1><p class="lead">AI 怎麼產生答案、學生用 AI 會怎樣，以及兩個現場實習：投票網頁、Agent 部署。</p></div></header><main><section><h2 id="1-3"><span>1-3</span>導讀：先動手，再理解</h2>
+<p>本教材分為三個部分。第一部分討論 AI 素養，核心問題是：學生與教師應該如何使用 AI，才不會讓學習受損。第二部分介紹提示詞構建心法，說明如何把模糊的需求轉化為可執行、可驗證的指令。第三部分則聚焦於 AI 驅動的教材設計與論文寫作。</p>
+<p>第一部分刻意從實作開始。先親手用 AI 完成一件具體的作品，再回頭理解 AI 如何產生答案，最後檢視研究證據，討論 AI 對學習的真實影響。小節編號與演講現場一致。</p>
+</section><section><h2 id="1-4"><span>1-4</span>實習：用 AI 製作課堂投票網頁</h2>
+<p>第一個實習是請 AI 製作一個可以在課堂投影使用的投票網頁。成品包含大標題、題目說明、切換題目的分頁按鈕、每個選項的長條圖與「百分比／票數」、已收到的總票數，以及「票數歸零」按鈕。下方提示詞已填好三道題目，可直接複製使用。提示詞為什麼這樣撰寫，將在第二部分 2-11 以表格逐項拆解。</p>
+<p><strong>操作步驟</strong></p>
 <ul>
-<li>打開 ChatGPT、Gemini 或 Claude，用自己平常有的那一個</li>
-<li>按提示詞右上角「複製」，貼上送出</li>
-<li>做出來後點幾下選項、切換分頁，確認長條和票數會動；不對就用一句話請 AI 修改</li>
-<li>做得快的組：照 AI 最後的說明，把其中一題換成自己想問學生的題目</li>
+<li>開啟 ChatGPT、Gemini 或 Claude 任一工具</li>
+<li>按提示詞右上角「複製」，貼上後送出</li>
+<li>點選選項、切換分頁，確認長條與票數會隨之更新；若有問題，用一句話請 AI 修正</li>
+<li>完成後可依 AI 提供的說明，把其中一題換成自己想問學生的題目</li>
 </ul>
 <p><strong>提示詞</strong></p>
 <pre><code>請幫我做一個「單一 HTML 檔」的投票展示網頁，給我上課投影用，做完直接顯示可以操作的網頁。
@@ -99,20 +98,16 @@ footer{text-align:center;font-size:13px;color:var(--muted);padding:20px 16px 40p
 【完成條件】
 直接顯示可以操作的網頁；最後用三行說明怎麼使用，以及怎麼換成我自己的題目。
 </code></pre>
-<blockquote>
-<p>做完想一想：AI 第一次就做對了嗎？如果有修改，你是怎麼跟它說的？</p>
-</blockquote>
-</section><section><h2 id="1-5"><span>1-5</span>現場實習：AI Agent 自己做網頁、部署到 Vercel（附免費網頁空間比較）</h2>
-<blockquote>
-<p>1-4 的網頁，是在聊天視窗裡請 AI 做的。這次換成 AI Agent：網頁它自己做、自己測、自己部署上網，你只要送出一段提示詞。</p>
-<p>Vercel 可以不登入就部署，馬上拿到一個正式的網址；這種「暫時部署」如果沒有認領，過一段時間就會失效。認領的方法是打開認領網址，登入或註冊免費帳號，再選要放到哪個團隊。<span class="src">〔Vercel 文件〈Deploying to Vercel Without Logging In〉〈Claim Deployments〉〕</span></p>
-</blockquote>
-<p><strong>動手做</strong></p>
+<p>完成後不妨回想：AI 第一次就做對了嗎？若需要修改，你是如何向它描述問題的？這段經驗正是第二部分要討論的起點。須留意的是，這個網頁的票數只存在各自的裝置上；若要讓全班以手機即時投票，還需要額外的後端服務。</p>
+</section><section><h2 id="1-5"><span>1-5</span>實習：讓 AI Agent 自行完成網頁並部署到 Vercel</h2>
+<p>1-4 的網頁是在對話視窗中請 AI 產生，使用者仍需自行複製與操作。本節改由 AI Agent 執行：Agent 會自行建立網頁、測試功能、安裝所需工具，並把網站部署到網路上，使用者只需送出一段提示詞。</p>
+<p>部署平台選用 Vercel，因為它允許在不登入的情況下部署，並立即取得正式網址。這類「暫時部署」若未經認領，經過一段時間後便會失效；認領方式是開啟認領網址，登入或註冊免費帳號後，選擇要移入的團隊<sup class="cite">[<a href="#ref-vercel-temp">1</a>, <a href="#ref-vercel-claim">2</a>]</sup>。</p>
+<p><strong>操作步驟</strong></p>
 <ol>
-<li>打開 Claude Code 或 Codex</li>
-<li>送出下面的提示詞</li>
-<li>看 Agent 自己完成；結束後用手機打開它回報的網址，點幾下選項確認會加票</li>
-<li>想保留網站：打開認領網址，註冊免費 Vercel 帳號後認領；認領網址不要分享給別人</li>
+<li>開啟 Claude Code 或 Codex</li>
+<li>送出下方提示詞</li>
+<li>等候 Agent 完成，再以手機開啟它回報的網址，點選選項確認票數會增加</li>
+<li>若要長期保留網站，開啟認領網址並註冊免費 Vercel 帳號完成認領；認領網址請勿分享，取得者即可認領該專案<sup class="cite">[<a href="#ref-vercel-claim">2</a>]</sup></li>
 </ol>
 <p><strong>提示詞</strong></p>
 <pre><code>請幫我做一個投票展示網頁，並部署上網。全程你自己完成，不要叫我複製、貼上、打指令或做任何手動操作。
@@ -165,9 +160,7 @@ footer{text-align:center;font-size:13px;color:var(--muted);padding:20px 16px 40p
 - 不要做 QR Code
 </code></pre>
 <p><strong>延伸：免費網頁空間比較</strong></p>
-<blockquote>
-<p>1-5 用的是 Vercel。免費網頁空間不只一家，這張表可以作為挑選參考。</p>
-</blockquote>
+<p>Vercel 並非唯一的免費選擇。下表整理 GitHub Pages、Vercel 與 Netlify 的定位與優缺點，可作為日後挑選平台的參考<sup class="cite">[<a href="#ref-jamespolik">3</a>]</sup>。</p>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -216,27 +209,18 @@ footer{text-align:center;font-size:13px;color:var(--muted);padding:20px 16px 40p
 </tr>
 </tbody>
 </table></div>
-<p><span class="src">〔小黃老師〈2026 免費網頁空間推薦：GitHub Pages、Vercel、Netlify 完整比較與評價〉，2026-03-17〕</span></p>
-</section><section><h2 id="1-6"><span>1-6</span>小實驗：「3 家」和「三家」，AI 如何產生答案？</h2>
+</section><section><h2 id="1-6"><span>1-6</span>小實驗：「3 家」與「三家」，AI 如何產生答案</h2>
+<p>在 1-4 中，即使使用同一段提示詞，每個人得到的網頁也未必完全相同。這個現象可以用一個更簡單的實驗觀察：在任一 AI 工具中分別送出以下兩段提示詞，比較推薦結果；也可以把同一段提示詞再送一次，看看結果是否改變。</p>
 <p><strong>提示詞 A</strong></p>
 <pre><code>請推薦虎尾科技大學附近 3 家美食。
 </code></pre>
 <p><strong>提示詞 B</strong></p>
 <pre><code>請推薦虎尾科技大學附近三家美食。
 </code></pre>
-<blockquote>
-<p>1-4 用的是同一段提示詞，大家做出來的網頁長得一樣嗎？</p>
-<p>再做一個小實驗：打開任何一家 AI，分別貼上提示詞 A 和 B，看看推薦的結果。</p>
-<p>對人來說，「3」和「三」代表一樣的數量，這兩個提示詞的意思幾乎相同。比較看看：兩次推薦的結果完全一樣嗎？同一個提示詞再送一次，又會怎樣？我們不預設一定相同，也不預設一定不同。</p>
-<p>真正值得問的是：意思沒有改，為什麼 AI 的輸出可能不完全一樣？</p>
-<p>因為生成式 AI 不是從固定的答案庫裡拿出一份既定答案，而是在目前的上下文下，依據機率逐步產生輸出。流程是：輸入、上下文、機率、預測、生成、輸出。<span class="src">〔楊峻泓《專業英文》課程網頁，單元 01〕</span></p>
-<p>有三個地方要小心：不能把這次的差異直接解釋成「3 和三是不同 Token，所以答案不同」；機率不等於隨機亂猜；也不能說每次輸出都一定不同。<span class="src">〔同上，學習邊界〕</span></p>
-</blockquote>
-</section><section><h2 id="1-7"><span>1-7</span>動態圖解與現場實習：LLM 怎麼處理「請推薦虎尾科技大學附近 3 家美食。」</h2>
-<blockquote>
-<p>AI 是依機率一步步產生答案。用 1-6 的提示詞，一步一步看它裡面發生什麼事。</p>
-</blockquote>
-<p>動態圖解網頁：<a href="https://claude.ai/artifact/NT4x7owYSji7uKYsz6nqMU" target="_blank" rel="noopener">LLM 運作機制：虎尾美食</a>（自動播放六個階段，也可以點數字跳到任一階段；右上角可切換提示詞 A／B）</p>
+<p>對人而言，「3」與「三」代表相同的數量，兩段提示詞的意思幾乎一致。值得思考的是：語意沒有改變，為什麼 AI 的輸出可能不完全相同？原因在於，生成式 AI 並不是從固定的答案庫取出既定答案，而是依據目前的上下文，按照機率逐步產生輸出；其流程可概括為輸入、上下文、機率、預測、生成與輸出<sup class="cite">[<a href="#ref-course">4</a>]</sup>。</p>
+<p>解讀這個實驗時有三點須特別謹慎：不能把差異直接歸因於「3 與三是不同的 Token，所以答案不同」；機率不等於隨機亂猜；也不能斷言每次輸出必然不同<sup class="cite">[<a href="#ref-course">4</a>]</sup>。實驗的目的，是建立「AI 依機率產生答案」的基本觀念，而非預設結果一定相同或一定不同。</p>
+</section><section><h2 id="1-7"><span>1-7</span>動態圖解與實習：LLM 如何處理一則提示詞</h2>
+<p>為了讓「依機率逐步產生」的過程更具體，<a href="https://claude.ai/artifact/NT4x7owYSji7uKYsz6nqMU" target="_blank" rel="noopener">LLM 運作機制動態圖解</a>以 1-6 的提示詞為例，把大型語言模型的處理流程拆成六個階段依序播放。頁面右上角可切換提示詞 A 與 B，也可點選數字直接跳到任一階段。</p>
 <div class="tw"><table>
 <thead>
 <tr>
@@ -248,48 +232,39 @@ footer{text-align:center;font-size:13px;color:var(--muted);padding:20px 16px 40p
 <tbody>
 <tr>
 <td>1 輸入提示</td>
-<td>提示詞逐字打出</td>
-<td>文字載入「上下文視窗」，尚未理解語意</td>
+<td>提示詞逐字出現</td>
+<td>文字被載入「上下文視窗」，此時尚未理解語意</td>
 </tr>
 <tr>
 <td>2 分詞處理</td>
-<td>切成 Token 卡片，各自對到 ID</td>
-<td>文字要先變成數字 ID；「3」和「三」可能是不同 Token，但不能直接說「所以答案不同」</td>
+<td>句子切成 Token，各自對應一個 ID</td>
+<td>文字須先轉為數字 ID 才能運算；「3」與「三」可能是不同 Token，但不能據此推論「所以答案不同」</td>
 </tr>
 <tr>
 <td>3 向量嵌入</td>
-<td>每個 Token 變成一串數字</td>
-<td>語意相近的詞在空間中比較靠近；加入位置編碼</td>
+<td>每個 Token 轉成一串數字</td>
+<td>語意相近的詞在向量空間中較接近，並加入位置編碼記錄順序</td>
 </tr>
 <tr>
 <td>4 注意力機制</td>
-<td>「推薦」—「美食」等連線與權重</td>
-<td>每個 Token 計算和其他 Token 的關聯</td>
+<td>「推薦」與「美食」等詞之間的連線與權重</td>
+<td>每個 Token 計算自己與其他 Token 的關聯程度</td>
 </tr>
 <tr>
 <td>5 神經網路</td>
-<td>多層網路的訊號流動</td>
-<td>訓練學到的規律存在參數裡；店家現況要另外查證</td>
+<td>多層網路中的訊號流動</td>
+<td>訓練時學到的規律存在參數中；店家現況仍須另行查證</td>
 </tr>
 <tr>
 <td>6 逐字生成</td>
-<td>下一個詞的機率長條＋逐詞接龍；「再生成一次」</td>
-<td>機率高的比較常被選到，但不保證每次一樣，也不保證每次不同</td>
+<td>下一個詞的機率長條與逐詞接續；「再生成一次」按鈕</td>
+<td>機率高的詞較常被選中，但同一提示詞再送一次，不保證每次相同，也不保證每次不同</td>
 </tr>
 </tbody>
 </table></div>
-<p>網頁上的分詞、ID、向量、權重、機率都是教學示意數值。</p>
+<p>頁面中的分詞方式、ID、向量、注意力權重與機率皆為教學示意，並非實際模型的內部數值。</p>
 <p><strong>實習：自己做一個動態圖解網頁</strong></p>
-<blockquote>
-<p>這個網頁也是用一段提示詞做出來的。自己做一個，比比看。</p>
-</blockquote>
-<p><strong>動手做</strong></p>
-<ul>
-<li>用 1-4 同一個 AI（ChatGPT、Gemini 或 Claude）</li>
-<li>複製下面的提示詞，貼上送出；免費版若做到一半停住，直接說「請繼續完成」</li>
-<li>做出來後，切換 A／B、按「再生成一次」，確認動畫和按鈕會動；不對就用一句話請 AI 修改</li>
-<li>做得快的組：照 AI 最後的說明，把測試提示詞換成自己課堂上的問題</li>
-</ul>
+<p>這個網頁本身也是由一段提示詞產生的。使用與 1-4 相同的 AI 工具送出下方提示詞，即可做出類似的作品；免費版若中途停止，輸入「請繼續完成」即可。完成後切換 A／B、按「再生成一次」，確認動畫與按鈕正常運作，也可以把測試提示詞換成自己課堂上的問題。</p>
 <p><strong>提示詞</strong></p>
 <pre><code>請幫我做一個「單一 HTML 檔」的動態教學網頁，主題是「LLM 大型語言模型運作機制」，用動畫一步一步呈現 AI 怎麼處理一個提示詞。做完直接顯示可以操作的網頁。
 
@@ -326,122 +301,45 @@ footer{text-align:center;font-size:13px;color:var(--muted);padding:20px 16px 40p
 【完成條件】
 直接顯示可以操作的網頁；最後用三行說明怎麼操作，以及怎麼換成我自己的提示詞。
 </code></pre>
-</section><section><h2 id="1-8"><span>1-8</span>學生用 AI 有多普遍：三組數字</h2>
-<blockquote>
-<p>英國高等教育政策研究所 2026 年的學生調查發現，94% 的英國大學部學生，現在寫作業會用生成式 AI。直接把 AI 生成的文字放進作業的比例，從 2024 年的 3%，升到 2026 年的 12%。<span class="src">〔HEPI〈AI detectors and the fairness gap〉，引用 HEPI《2026 學生生成式 AI 調查》〕</span></p>
-<p>台灣這邊，udn 文教做過一份大學生網路問卷，96.5% 曾經用生成式 AI 輔助課業。這份問卷有效樣本 167 份，是在社群上招募的，不是隨機抽樣，數字看方向就好。<span class="src">〔udn 文教〈當 AI 成為我的室友〉〕</span></p>
-<p>台大人類學系一門大三必修課，22 位學生填答，用過 AI 的超過八成，但主動揭露的不到一半。<span class="src">〔芭樂人類學〈AI 時代的（大學部）田野教學〉〕</span></p>
-<p>學生幾乎都在用，但會主動告訴我們的，不到一半。</p>
-</blockquote>
-</section><section><h2 id="1-9"><span>1-9</span>核心證據：生成式 AI 學習懲罰（作業變好、考試變差）</h2>
-<blockquote>
-<p>學生用了之後，學得怎麼樣？下面這份研究，是這份教材最希望你記住的。</p>
-<p>今年 6 月，斯德哥爾摩大學的 David Strömberg，和香港大學的 Victor Lei、Yanhui Wu，發表了一篇論文，題目是〈生成式 AI 的學習懲罰：來自中國中學教育的證據〉。<span class="src">〔CEPR DP21577；36Kr〕</span></p>
-<p>他們在中國中部的一個縣，追蹤了 26,811 名七到十二年級的學生，整整 30 個月。手上的資料包括每個月的閉卷考、高中和大學的入學考，還有九個科目的作業分數和寫作業花的時間。研究者用學生裝置上 AI 工具的註冊日期，抓出每個學生開始用 AI 的時間點。<span class="src">〔CEPR DP21577 摘要；VoxDev；Education Next〕</span></p>
-<p>結果是這樣的。學生開始用 AI 之後，作業分數上升 18%，寫作業的時間少了 30%。只看作業，會以為學生進步了。</p>
-<p>但同一批學生，在六個月內，每月閉卷考的分數下降了 20%。高中入學考的分數下降 24%，大學入學考下降 18%，而且這個落差要大約兩年才完全出現。入學考決定學生能進哪所學校，這個損失會直接影響他們的升學路。<span class="src">〔CEPR DP21577 摘要；作者 VoxEU 專文〕</span></p>
-<p>作者特別提醒：這代表只追蹤幾週、幾個月的短期研究，可能系統性地低估了用 AI 的長期學習代價。<span class="src">〔VoxDev〕</span></p>
-<p>傳統上，作業分數高，代表學得好。這份研究看到的是，作業分數和考試分數脫鉤了。<span class="src">〔VoxDev〕</span></p>
-<p>那是誰退步了？損失集中在大約八成（論文內文是 81%）的 AI 使用者身上。他們寫作業的時間，比最快的不用 AI 的學生還要短，作業分數很高，考試分數卻很低。研究者判斷，這些學生的行為符合把作業外包給 AI。<span class="src">〔CEPR DP21577 摘要；Education Next〕</span></p>
-<p>但這篇研究最重要的發現在這裡：也有學生在用 AI，但寫作業花的時間，跟沒用 AI 的同學差不多。這群學生，學習損失很小。<span class="src">〔CEPR DP21577 摘要〕</span></p>
-<p>所以同樣是用 AI，差別在學生有沒有自己花時間想。</p>
-<p>第一作者 Strömberg 在受訪時說，他擔心的是，這個過程中失去的能力，之後沒辦法再用 AI 補回來。<span class="src">〔Folhapress 訪談，Bem Paraná 轉載〕</span></p>
-</blockquote>
+</section><section><h2 id="1-8"><span>1-8</span>學生使用 AI 的普遍程度</h2>
+<p>在討論 AI 對學習的影響之前，先看學生實際使用 AI 的情形。英國高等教育政策研究所（HEPI）2026 年的調查顯示，94% 的英國大學部學生寫作業時會使用生成式 AI；直接把 AI 生成文字放進作業的比例，則從 2024 年的 3% 上升到 2026 年的 12%<sup class="cite">[<a href="#ref-hepi">5</a>]</sup>。</p>
+<p>台灣也呈現類似的方向。udn 文教的大學生網路問卷中，96.5% 的受訪者曾以生成式 AI 輔助課業；不過該問卷的有效樣本為 167 份，且透過社群招募而非隨機抽樣，數字僅能作為趨勢參考<sup class="cite">[<a href="#ref-udn">6</a>]</sup>。台大人類學系一門大三必修課的 22 位填答學生中，用過 AI 的超過八成，主動揭露使用情形的卻不到一半<sup class="cite">[<a href="#ref-guava">7</a>]</sup>。換言之，學生幾乎都在使用 AI，但願意主動告訴教師的並不多。</p>
+</section><section><h2 id="1-9"><span>1-9</span>核心證據：生成式 AI 的學習懲罰</h2>
+<p>學生使用 AI 之後，學習成效究竟如何？斯德哥爾摩大學的 David Strömberg 與香港大學的 Victor Lei、Yanhui Wu 於 2026 年 6 月發表〈生成式 AI 的學習懲罰：來自中國中學教育的證據〉，提供了目前最具說服力的答案之一<sup class="cite">[<a href="#ref-cepr">8</a>, <a href="#ref-36kr">9</a>]</sup>。</p>
+<p>研究團隊在中國中部一個縣追蹤 26,811 名七至十二年級學生長達 30 個月，資料涵蓋每月閉卷考、高中與大學入學考，以及九個科目的作業分數與作業時間；並以學生裝置上 AI 工具的註冊日期，判定每位學生開始使用 AI 的時間點<sup class="cite">[<a href="#ref-cepr">8</a>, <a href="#ref-voxdev">10</a>, <a href="#ref-ednext">11</a>]</sup>。</p>
+<p>結果顯示，學生開始使用 AI 後，作業分數上升 18%，作業時間減少 30%，單看作業會以為學生進步了。然而同一批學生的每月閉卷考分數在六個月內下降 20%，高中入學考下降 24%，大學入學考下降 18%，而且這個落差約需兩年才完全顯現<sup class="cite">[<a href="#ref-cepr">8</a>, <a href="#ref-voxeu">12</a>]</sup>。作者因此提醒，只追蹤數週或數月的短期研究，可能系統性地低估使用 AI 的長期學習代價；作業分數與考試分數之間的對應關係，也已經脫鉤<sup class="cite">[<a href="#ref-voxdev">10</a>]</sup>。</p>
+<p>損失主要集中在約八成（論文內文為 81%）的 AI 使用者身上：他們的作業時間比最快完成的非使用者還短，作業分數很高，考試分數卻很低，研究者判斷其行為符合「把作業外包給 AI」<sup class="cite">[<a href="#ref-cepr">8</a>, <a href="#ref-ednext">11</a>]</sup>。但這篇研究最重要的發現是：另有一群學生雖然使用 AI，作業時間卻與未使用者相近，他們的學習損失很小<sup class="cite">[<a href="#ref-cepr">8</a>]</sup>。關鍵差異不在於是否使用 AI，而在於學生是否仍花時間自己思考。第一作者 Strömberg 受訪時也表示，他擔心的是這個過程中失去的能力，日後無法再靠 AI 補回<sup class="cite">[<a href="#ref-folha">13</a>]</sup>。</p>
 <p><strong>延伸補充</strong></p>
 <ul>
-<li>科目：社會科學下降最多（政治、地理約 27%），其次 STEM（約 22%），英文約 17%，國語文最少（約 9%）<span class="src">〔36Kr〕</span></li>
-<li>族群：低年級、成績好的學生和男生，損失特別大<span class="src">〔CEPR DP21577 摘要〕</span></li>
-<li>學生最常用的工具：豆包、DeepSeek、智譜清言、文心、通義<span class="src">〔36Kr〕</span></li>
-<li>作者的建議：要想辦法讓學生明白，把作業全部交給 AI，吃虧的是自己<span class="src">〔Folhapress 訪談〕</span></li>
+<li>科目差異：社會科學下降最多（政治、地理約 27%），其次為 STEM（約 22%）、英文（約 17%），國語文最少（約 9%）<sup class="cite">[<a href="#ref-36kr">9</a>]</sup></li>
+<li>族群差異：低年級、成績較好的學生與男生，損失特別明顯<sup class="cite">[<a href="#ref-cepr">8</a>]</sup></li>
+<li>學生最常使用的工具：豆包、DeepSeek、智譜清言、文心、通義<sup class="cite">[<a href="#ref-36kr">9</a>]</sup></li>
+<li>作者建議：設法讓學生理解，把作業全部交給 AI，最終吃虧的是自己<sup class="cite">[<a href="#ref-folha">13</a>]</sup></li>
 </ul>
-</section><section><h2 id="1-10"><span>1-10</span>大學也一樣：布朗大學期中 96 分、期末 48 分</h2>
-<blockquote>
-<p>這不只發生在中學。</p>
-<p>布朗大學經濟系的 Roberto Serrano 教授，去年春天第一次讓學生把期中考帶回家寫。這門課過去的期中考平均在 65 到 80 分之間，這次平均 96 分，40 個人滿分。他和助教發現，答案的模式跟 ChatGPT 生成的內容相符。</p>
-<p>他在課堂上問學生，你們來布朗是在做什麼？學生一片沉默。</p>
-<p>他宣布期末考改成現場、閉卷。宣布之後，很多學生立刻退選，其中 22 個是期中考考 100 分的。期末考平均，從原本的 96 分掉到 48 分。<span class="src">〔WGBH〈Cognitive surrender〉〕</span></p>
-<p>Serrano 說：「我們不能選擇變笨。」<span class="src">〔WGBH〕</span></p>
-<p>中國中學生花兩年才看到的落差，布朗大學一個學期就看到了。</p>
-</blockquote>
+</section><section><h2 id="1-10"><span>1-10</span>大學也一樣：布朗大學的期中與期末</h2>
+<p>這個現象並不限於中學。布朗大學經濟系 Roberto Serrano 教授首次讓學生把期中考帶回家作答，過去平均約 65 至 80 分的考試，這次平均 96 分、40 人滿分；他與助教發現答案模式與 ChatGPT 生成的內容相符。當他宣布期末考改為現場閉卷後，許多學生隨即退選，其中 22 人期中考拿了 100 分；期末考平均分數則從 96 分降到 48 分<sup class="cite">[<a href="#ref-wgbh">14</a>]</sup>。Serrano 的結論是：「我們不能選擇變笨。」<sup class="cite">[<a href="#ref-wgbh">14</a>]</sup>中國中學生約需兩年才顯現的落差，在這門大學課程中，一個學期就清楚浮現。</p>
 </section><section><h2 id="1-11"><span>1-11</span>風險是真的：大腦與思考習慣</h2>
-<blockquote>
-<p>前面看的是成績，接下來看大腦和思考習慣。</p>
-<p>MIT 媒體實驗室 2025 年有一項研究，讓 54 位受試者分成三組，連續幾個月寫論文：一組用 ChatGPT，一組用搜尋引擎，一組完全靠自己。研究團隊用腦電圖測量寫作時的大腦參與度。結果，一直靠 ChatGPT 的那組，腦部神經參與度最低，也最難回想、說明自己剛寫完的文章。研究者把這叫做「認知債」：短期減輕腦力負擔，卻可能伴隨批判性思考變弱、原創性降低。要提醒的是，這是還沒經過同儕審查的預印本。<span class="src">〔遠見〈開學演講破百萬瀏覽！陽明交大教授為何勸大學生少用AI？〉〕</span></p>
-<p>2025 年 4 月，卡內基美隆大學和微軟研究院問卷調查 319 位知識工作者，蒐集 936 個實際用生成式 AI 工作的案例。他們發現：對 AI 越有信心的人，批判性思考投入越少；對自己能力越有信心的人，批判性思考反而越多。微軟研究院稱之為「自動化悖論」：AI 幫忙處理例行工作，也同時減少人練習判斷的機會。<span class="src">〔遠見〕</span></p>
-<p>學生自己其實知道。MIT 2026 年 8 月的校級報告引用調查：90% 的大學部學生擔心自己過度依賴 AI，其中 67% 非常擔心。<span class="src">〔王道維〈AI真的傷害了學生的學習嗎？〉，引 MIT 報告〕</span></p>
-<p>陽明交大腦科學特聘教授蔡金吾，今年在新生開學典禮上把黃仁勳那句「Run, don't walk」反過來，送給學生兩句話：「Walk, don't run（先學走再跑）」、「Think, don't prompt（先思考，再下指令）」。<span class="src">〔遠見〕</span></p>
-</blockquote>
-</section><section><h2 id="1-12"><span>1-12</span>大學的兩種反應：擋還是導</h2>
-<blockquote>
-<p>面對這種情況，大學大致有兩種反應。</p>
-<p>一種是擋。芝加哥大學、柏克萊、康乃爾、哥倫比亞大學，在某些課程或作業禁止使用 AI。Serrano 自己這學期也把作業成績的比重降到 0%，加上口試。<span class="src">〔WGBH〕</span></p>
-<p>另一種是導。亞利桑那州立大學是 OpenAI 最早的合作學校之一，把 AI 整合進課程和學生服務。人文學院院長 Jeffrey Cohen 說，大學不可能抓到每個用 AI 作弊的學生，老師應該設計要求學生主動學習的課程。<span class="src">〔WGBH〕</span></p>
-<p>前南新罕布夏大學校長 Paul LeBlanc 說，評量在 AI 出現之前就已經壞了，AI 就像疫情，把原本的問題加速放大。<span class="src">〔WGBH〕</span></p>
-<p>回到前面的中國研究。作者提出的解法，也不是禁用 AI。<span class="src">〔36Kr〕</span></p>
-<p>他們看到有一群學生用了 AI，卻沒有退步。接下來要談的就是：怎麼讓我們的學生，變成那一群。</p>
-</blockquote>
-</section><section><h2 id="1-13"><span>1-13</span>問題問錯了：看怎麼用、用什麼工具（猜分數、華頓、清大小TAI）</h2>
-<blockquote>
-<p>要讓學生變成那一群，先要把問題問對。很多人會問：AI 是不是傷害了學習？</p>
-<p>清華大學物理系王道維教授認為，這個問題本身問錯了。它假設 AI 是一個「全有或全無」的東西；它也假設有一個「不用 AI」的對照組。但 AI 已經像網路一樣，是社會的基礎設施，「不用」已經不是務實的選項。王教授認為該問的是兩件事：第一，學生怎麼用 AI，也就是使用模式；第二，學生用的是什麼 AI，也就是工具設計。<span class="src">〔王道維〕</span></p>
-<p>怎麼用，前面的中國研究已經給了線索：作業時間正常的學生沒有退步。我們再看一個實驗。</p>
-<p>Anthropic 2026 年 1 月發表一個隨機對照實驗：52 位專業軟體工程師，要學一個從沒用過的 Python 程式庫，一半的人可以用 AI 助手，一半自己手寫。寫完之後，大家不能用 AI，考剛剛寫過的概念。</p>
-<p>手寫組平均 67 分。用 AI 的那組平均 50 分，差了 17 分，差最多的是除錯，其次是讀程式碼和概念理解。用 AI 的那組，完成時間只稍微短一點，沒有達到統計上的顯著差異。<span class="src">〔王道維，引 Shen &amp; Tamkin (2026)〕</span></p>
-<p>先猜猜看：用 AI 的那組裡，最會用的那群人，考幾分？低於 50、50 到 67，還是高於 67？</p>
-<p>答案是：只問概念的那群人，平均 86 分，比完全不用 AI 的手寫組還高。把整個任務交給 AI 的那群人，只有 24 分。<span class="src">〔王道維，引 Shen &amp; Tamkin (2026)〕</span></p>
-<p>同樣用 AI，差距從 24 分到 86 分，比用不用 AI 的 17 分差距還大。</p>
-<p>王道維把這些行為分成兩大類。</p>
-<p>一類是「認知卸載」：把思考整個交出去。貼上題目直接拿答案、遇到錯誤不先看就丟給 AI 修、拿到回覆不逐行讀就進下一題。這些人從頭到尾，腦中不需要維持問題的結構。</p>
-<p>另一類是「認知參與」：把 AI 放進思考的迴路，而不是取代迴路。問「這個做法背後的邏輯是什麼」，而不是「答案是多少」；要求附上逐步解釋並確實讀完；遇到錯誤先形成自己的假設，再用 AI 檢核。</p>
-<p>王教授特別指出：AI 對這類使用者，不是思考的替代品，而是思考的夥伴。<span class="src">〔王道維〕</span></p>
-<p>但不能全靠學生的自制力。第二個向度是工具設計。</p>
-<p>賓州大學華頓商學院發表在《美國國家科學院院刊》的研究，讓將近一千名高中生在數學課分別用兩種介面：一種是一般的 GPT-4，一種是加了老師設計的防護欄、不直接給答案、改給方向性提示的版本。學生是隨機分派的。</p>
-<p>用一般介面的學生，練習時表現比對照組好 48%，但拿掉 AI 正式考試時，比從沒用過 AI 的學生差了 17%。用防護欄版本的學生，練習時好 127%，考試的負面效果大致抵銷。</p>
-<p>互動紀錄更清楚：一般介面每題平均只交換約 2.1 則訊息，大概就是貼題目、拿答案、再確認一次；防護欄版本從約 3.5 則逐次增加到約 5 則。王教授的結論是：防護欄不是因為給了更好的答案才有效，而是改變了學生的互動習慣。<span class="src">〔王道維，引 Bastani 等 (2025)〕</span></p>
-<p>他也提醒，防護欄和好的教學設計不是同一件事：前者是把最壞的路關上，後者是把最好的路鋪出來。<span class="src">〔王道維〕</span></p>
-<p>台灣也有例子。王道維從 112 學年度開始，在清大普通物理課導入 AI 助教「小TAI」，後來擴及理工學院修普物的大約 1,600 名學生。三年下來看到同樣的結構：願意跟 AI 深入討論的學生，成績進步明顯；只會要答案的學生，反而相對退步。</p>
-<p>他每年會把前一屆學生怎麼用、成績表現如何，分享給下一屆。學生做「協作建構」對話的比例，從 112 學年度的 32.3%，到 113 學年度的 42.8%，再到 114 學年度的 51.0%。<span class="src">〔王道維〕</span></p>
-<p>老師的引導，真的會改變學生怎麼用。</p>
-</blockquote>
-</section><section><h2 id="1-14"><span>1-14</span>轉向：偵測器靠不住，從防 AI 到教學生有判斷地用</h2>
-<blockquote>
-<p>那可以靠 AI 偵測器抓嗎？</p>
-<p>研究者用七種常見偵測器測 91 篇非英語母語作文，平均 61% 的真人作文被誤判成 AI；范德堡大學算過，1% 的誤報率，一年就是大約 750 篇冤案，所以關掉了這個功能。HEPI 的建議是：偵測分數只能當進一步了解的起點，不能當判決。<span class="src">〔HEPI〈AI detectors and the fairness gap〉〕</span></p>
-<p>曼徹斯特大學化學工程高級講師 Salman Shahid 說，他起初也把學生用 AI 當成評量和學術誠信問題，想設計 AI 做不到的評量。後來他不再想怎麼讓學習「防 AI」（AI-proof），而是轉向「AI-authentic」：承認學生會用 AI，確保他們培養出有效運用 AI 需要的知識、判斷和技能。</p>
-<p>讓他改變想法的，是他自己的研究：ChatGPT 回答需要知識回憶的化學題，正確率約 95%；但遇到需要專業工程判斷的複雜開放題，正確率降到約 41%，而且有些錯誤答案看起來很合理，要有真正的工程知識才認得出來。<span class="src">〔Shahid, Times Higher Education〕</span></p>
-<p>Anthropic 的 AI 熟練度報告分析了 9,830 段對話，發現一個值得注意的現象：當 AI 做出程式、文件這類看起來完成的成品時，使用者反而比較少發現缺漏的背景資訊（少 5.2 個百分點）、比較少查核事實（少 3.7 個百分點）、比較少質疑 AI 的推理（少 3.1 個百分點）。報告的建議是：AI 做出看起來很好的東西時，正是該停下來問「這正確嗎？有沒有漏掉什麼？」的時候。<span class="src">〔Anthropic Education Report: The AI Fluency Index〕</span></p>
-<p>學生要學的，是判斷什麼不該交給 AI。我們自己要先成為會「認知參與」的使用者，才教得出來。第二部分就從寫提示詞開始，也會回頭拆解 1-4 做網頁的那段提示詞。</p>
-</blockquote>
+<p>除了成績，研究者也觀察到 AI 對思考歷程的影響。MIT 媒體實驗室 2025 年的研究讓 54 位受試者分為三組，連續數月撰寫論文：一組使用 ChatGPT，一組使用搜尋引擎，一組完全靠自己，並以腦電圖測量寫作時的大腦參與度。持續依賴 ChatGPT 的組別，神經參與度最低，也最難回想與說明自己剛完成的文章；研究者稱之為「認知債」，即短期減輕負擔，卻可能伴隨批判性思考減弱與原創性降低。這項研究為尚未經同儕審查的預印本<sup class="cite">[<a href="#ref-gvm">15</a>]</sup>。</p>
+<p>卡內基美隆大學與微軟研究院 2025 年 4 月調查 319 位知識工作者、蒐集 936 個實際使用生成式 AI 的案例，發現對 AI 越有信心的人，投入的批判性思考越少；對自身能力越有信心的人，批判性思考反而越多。微軟研究院稱之為「自動化悖論」：AI 承擔例行工作的同時，也減少了人練習判斷的機會<sup class="cite">[<a href="#ref-gvm">15</a>]</sup>。</p>
+<p>學生本身其實意識到這個風險。MIT 2026 年 8 月的校級報告引用調查指出，90% 的大學部學生擔心自己過度依賴 AI，其中 67% 非常擔心<sup class="cite">[<a href="#ref-wang">16</a>]</sup>。陽明交大腦科學特聘教授蔡金吾在新生開學典禮上，把「Run, don't walk」反轉為兩句提醒：「Walk, don't run（先學走再跑）」與「Think, don't prompt（先思考，再下指令）」<sup class="cite">[<a href="#ref-gvm">15</a>]</sup>。</p>
+</section><section><h2 id="1-12"><span>1-12</span>大學的兩種回應：防堵或引導</h2>
+<p>面對這些現象，大學大致採取兩種回應。第一種是防堵：芝加哥大學、柏克萊、康乃爾與哥倫比亞大學在部分課程或作業中禁止使用 AI；Serrano 也把作業成績比重降為 0%，並加入口試<sup class="cite">[<a href="#ref-wgbh">14</a>]</sup>。第二種是引導：亞利桑那州立大學作為 OpenAI 最早的合作學校之一，將 AI 整合進課程與學生服務；人文學院院長 Jeffrey Cohen 認為，大學不可能抓到每一位用 AI 作弊的學生，教師應設計要求學生主動學習的課程<sup class="cite">[<a href="#ref-wgbh">14</a>]</sup>。前南新罕布夏大學校長 Paul LeBlanc 則指出，評量在 AI 出現之前就已存在問題，AI 如同疫情，只是把原有問題加速放大<sup class="cite">[<a href="#ref-wgbh">14</a>]</sup>。</p>
+<p>值得注意的是，1-9 的研究作者提出的解方也不是禁用 AI<sup class="cite">[<a href="#ref-36kr">9</a>]</sup>。既然研究中有一群學生使用 AI 卻沒有退步，真正的問題便是：如何讓更多學生成為那一群。</p>
+</section><section><h2 id="1-13"><span>1-13</span>問題問錯了：關鍵在怎麼用、用什麼工具</h2>
+<p>討論 AI 時，最常見的提問是「AI 是否傷害了學習」。清華大學物理系王道維教授認為這個問題本身問錯了：它把 AI 視為「全有或全無」的單一事物，也假設存在一個「不用 AI」的對照組；然而 AI 已如同網路般成為社會基礎設施，「不用」並非務實選項。他主張應改問兩件事：學生如何使用 AI（使用模式），以及學生使用的是什麼 AI（工具設計）<sup class="cite">[<a href="#ref-wang">16</a>]</sup>。</p>
+<p>就使用模式而言，1-9 的研究已提供線索：作業時間正常的學生並未退步。Anthropic 於 2026 年 1 月發表的隨機對照實驗提供了更直接的證據：52 位專業軟體工程師學習一個從未用過的 Python 程式庫，一半可使用 AI 助手，一半自行撰寫，完成後在不使用 AI 的情況下測驗相關概念。手寫組平均 67 分，AI 組平均 50 分，差距最大的是除錯，其次是讀程式碼與概念理解；AI 組的完成時間只略短，差異未達統計顯著<sup class="cite">[<a href="#ref-wang">16</a>]</sup>。更值得注意的是 AI 組內部的差異：只向 AI 詢問概念的人平均 86 分，甚至高於手寫組；把整個任務交給 AI 的人只有 24 分<sup class="cite">[<a href="#ref-wang">16</a>]</sup>。使用方式造成的差距，遠大於用不用 AI 的差距。</p>
+<p>王道維將這些行為歸為兩類。一類是「認知卸載」：把思考整個交出去，例如貼上題目直接取得答案、遇到錯誤不先檢查就交給 AI 修正、拿到回覆不逐行閱讀就進入下一題。另一類是「認知參與」：把 AI 放進思考的迴路而非取代它，例如追問「這個做法背後的邏輯是什麼」而非「答案是多少」、要求逐步解釋並確實讀完、遇到錯誤先形成自己的假設再請 AI 檢核。對後者而言，AI 不是思考的替代品，而是思考的夥伴<sup class="cite">[<a href="#ref-wang">16</a>]</sup>。</p>
+<p>然而，單靠學生自律並不足夠，工具設計同樣重要。賓州大學華頓商學院發表於《美國國家科學院院刊》的研究，讓近千名高中生在數學課隨機使用兩種介面：一般的 GPT-4，以及加入教師設計的防護欄、不直接給答案而改給方向性提示的版本。使用一般介面的學生練習表現比對照組好 48%，但移除 AI 後的正式考試比從未用過 AI 的學生差 17%；使用防護欄版本的學生練習表現好 127%，考試的負面效果則大致抵銷。互動紀錄進一步顯示，一般介面每題平均只交換約 2.1 則訊息，防護欄版本則從約 3.5 則逐步增加到約 5 則；防護欄之所以有效，不是因為提供更好的答案，而是改變了學生的互動習慣<sup class="cite">[<a href="#ref-wang">16</a>]</sup>。王道維同時提醒，防護欄與好的教學設計並不相同：前者是把最壞的路關上，後者是把最好的路鋪出來<sup class="cite">[<a href="#ref-wang">16</a>]</sup>。</p>
+<p>台灣也有實例。王道維自 112 學年度起在清大普通物理課導入 AI 助教「小TAI」，後來擴及理工學院約 1,600 名修課學生。三年來觀察到相同的結構：願意與 AI 深入討論的學生成績進步明顯，只索取答案的學生反而相對退步。他每年把前一屆的使用方式與成績表現分享給下一屆，學生進行「協作建構」對話的比例因此從 32.3%（112 學年度）提升到 42.8%（113 學年度），再到 51.0%（114 學年度）<sup class="cite">[<a href="#ref-wang">16</a>]</sup>。教師的引導，確實能改變學生使用 AI 的方式。</p>
+</section><section><h2 id="1-14"><span>1-14</span>轉向：從防堵 AI 到培養判斷力</h2>
+<p>那麼，能否依靠 AI 偵測器解決問題？研究者以七種常見偵測器檢測 91 篇非英語母語者的作文，平均有 61% 的真人作文被誤判為 AI 生成；范德堡大學估算，即使誤報率只有 1%，一年也會產生約 750 件冤案，因此停用該功能。HEPI 的建議是，偵測分數只能作為進一步了解的起點，不能作為判決依據<sup class="cite">[<a href="#ref-hepi">5</a>]</sup>。</p>
+<p>曼徹斯特大學化學工程高級講師 Salman Shahid 原本也把學生使用 AI 視為評量與學術誠信問題，試圖設計 AI 無法完成的評量；後來他不再追求「防 AI」（AI-proof），轉而強調「AI-authentic」：承認學生會使用 AI，並確保他們具備有效運用 AI 所需的知識、判斷與技能。促使他轉變的是自己的研究：ChatGPT 回答知識回憶型化學題的正確率約 95%，但面對需要專業工程判斷的複雜開放題，正確率降至約 41%，而且部分錯誤答案看似合理，必須具備真正的工程知識才能辨識<sup class="cite">[<a href="#ref-shahid">17</a>]</sup>。</p>
+<p>Anthropic 的 AI 熟練度報告分析 9,830 段對話後也發現，當 AI 產出程式或文件等看似完成的成品時，使用者反而較少發現缺漏的背景資訊（少 5.2 個百分點）、較少查核事實（少 3.7 個百分點）、較少質疑 AI 的推理（少 3.1 個百分點）。報告建議，AI 產出看似完美的成果時，正是最應停下來確認「是否正確、是否有遺漏」的時候<sup class="cite">[<a href="#ref-fluency">18</a>]</sup>。</p>
+<p>綜合以上證據，學生需要學會的是判斷哪些事不該交給 AI；而教師必須先成為能「認知參與」的使用者，才能教會學生。第二部分將從撰寫提示詞開始，並回頭拆解 1-4 製作網頁時使用的提示詞。</p>
 <p><strong>延伸參考</strong></p>
 <ul>
-<li>《專業英文：Professional English × AI Literacy × AI Concepts &amp; Technology》課程網站：<a href="https://professional-english-ai-literacy.vercel.app/" target="_blank" rel="noopener">https://professional-english-ai-literacy.vercel.app/</a></li>
-</ul>
-</section><section><h2><span>📚</span>參考資料</h2>
-<ul>
-<li>Vercel 文件〈Deploying to Vercel Without Logging In〉：<a href="https://vercel.com/docs/deployments/deploy-without-logging-in" target="_blank" rel="noopener">https://vercel.com/docs/deployments/deploy-without-logging-in</a></li>
-<li>Vercel 文件〈Claim Deployments〉：<a href="https://vercel.com/docs/deployments/claim-deployments" target="_blank" rel="noopener">https://vercel.com/docs/deployments/claim-deployments</a></li>
-<li>小黃老師〈2026 免費網頁空間推薦：GitHub Pages、Vercel、Netlify 完整比較與評價〉：<a href="https://jamespolik.pixnet.net/blog/posts/874540269967331917" target="_blank" rel="noopener">https://jamespolik.pixnet.net/blog/posts/874540269967331917</a></li>
-<li>Strömberg, Lei &amp; Wu (2026). The Generative AI Learning Penalty: Evidence from Chinese Secondary Education. CEPR DP21577：<a href="https://ideas.repec.org/p/cpr/ceprdp/21577.html" target="_blank" rel="noopener">https://ideas.repec.org/p/cpr/ceprdp/21577.html</a></li>
-<li>作者 VoxEU 專文〈The generative AI learning penalty in secondary school〉：<a href="https://cepr.org/voxeu/columns/generative-ai-learning-penalty-secondary-school（VoxDev" target="_blank" rel="noopener">https://cepr.org/voxeu/columns/generative-ai-learning-penalty-secondary-school（VoxDev</a> 轉載：<a href="https://voxdev.org/node/300713" target="_blank" rel="noopener">https://voxdev.org/node/300713</a>）</li>
-<li>Education Next〈The Penalty Students Pay for Using AI〉：<a href="https://www.educationnext.org/the-penalty-students-pay-for-using-ai/" target="_blank" rel="noopener">https://www.educationnext.org/the-penalty-students-pay-for-using-ai/</a></li>
-<li>36Kr 報導：<a href="https://eu.36kr.com/en/p/3952134936368772" target="_blank" rel="noopener">https://eu.36kr.com/en/p/3952134936368772</a></li>
-<li>Folhapress 訪談（Bem Paraná 轉載）：<a href="https://www.bemparana.com.br/bem-estar/ia-prejudica-aprendizado-na-escola-e-piora-desempenho-nas-provas-diz-estudo/" target="_blank" rel="noopener">https://www.bemparana.com.br/bem-estar/ia-prejudica-aprendizado-na-escola-e-piora-desempenho-nas-provas-diz-estudo/</a></li>
-<li>WGBH〈'Cognitive surrender': Are college students who use AI really learning?〉（講者蒐集資料）</li>
-<li>HEPI〈AI detectors and the fairness gap〉（講者蒐集資料）</li>
-<li>udn 文教〈當 AI 成為我的室友〉：<a href="https://topic.udn.com/newstopic/2025edu_AI/203" target="_blank" rel="noopener">https://topic.udn.com/newstopic/2025edu_AI/203</a></li>
-<li>
-<p>芭樂人類學〈AI 時代的（大學部）田野教學〉：<a href="https://guavanthropology.tw/article/7108" target="_blank" rel="noopener">https://guavanthropology.tw/article/7108</a></p>
-</li>
-<li>
-<p>《專業英文》課程網站（延伸參考）：<a href="https://professional-english-ai-literacy.vercel.app/" target="_blank" rel="noopener">https://professional-english-ai-literacy.vercel.app/</a></p>
-</li>
-<li>楊峻泓《專業英文：Professional English × AI Literacy × AI Concepts &amp; Technology》課程網頁，單元 01</li>
-<li>王道維〈AI真的傷害了學生的學習嗎？〉（風傳媒，雲端資料夾）；內引 Shen &amp; Tamkin (2026)、Bastani et al. (2025)、MIT 校級報告 (2026)</li>
-<li>遠見〈開學演講破百萬瀏覽！陽明交大教授為何勸大學生少用AI？〉（講者蒐集資料）</li>
-<li>HEPI〈AI detectors and the fairness gap〉（講者蒐集資料）</li>
-<li>Salman Shahid〈The difference between AI-proof and AI-authentic engineering education〉（講者蒐集資料）</li>
-<li>Anthropic Education Report: The AI Fluency Index（講者蒐集資料）</li>
-</ul></section><div class="pager"><a href="index.html">← 首頁</a><a href="part2.html">二、提示詞構建心法 →</a></div></main><footer>國立虎尾科技大學｜AI 教師工作坊教材。各網站與文獻內容以原始來源為準。</footer><script src="assets/qrcode.js"></script><script>
+<li><a href="https://professional-english-ai-literacy.vercel.app/" target="_blank" rel="noopener">《專業英文：Professional English × AI Literacy × AI Concepts &amp; Technology》課程網站</a></li>
+</ul></section><section><h2><span>📚</span>參考資料</h2><ol class="refs"><li id="ref-vercel-temp"><a href="https://vercel.com/docs/deployments/deploy-without-logging-in" target="_blank" rel="noopener">Vercel 文件〈Deploying to Vercel Without Logging In〉</a></li><li id="ref-vercel-claim"><a href="https://vercel.com/docs/deployments/claim-deployments" target="_blank" rel="noopener">Vercel 文件〈Claim Deployments〉</a></li><li id="ref-jamespolik"><a href="https://jamespolik.pixnet.net/blog/posts/874540269967331917" target="_blank" rel="noopener">小黃老師（2026-03-17）〈2026 免費網頁空間推薦：GitHub Pages、Vercel、Netlify 完整比較與評價〉</a></li><li id="ref-course"><a href="https://professional-english-ai-literacy.vercel.app/" target="_blank" rel="noopener">楊峻泓《專業英文：Professional English × AI Literacy × AI Concepts &amp; Technology》課程網站，單元 01</a></li><li id="ref-hepi">HEPI〈AI detectors and the fairness gap〉；引用 HEPI《2026 學生生成式 AI 調查》</li><li id="ref-udn"><a href="https://topic.udn.com/newstopic/2025edu_AI/203" target="_blank" rel="noopener">udn 文教〈當 AI 成為我的室友〉</a></li><li id="ref-guava"><a href="https://guavanthropology.tw/article/7108" target="_blank" rel="noopener">芭樂人類學〈AI 時代的（大學部）田野教學〉</a></li><li id="ref-cepr"><a href="https://ideas.repec.org/p/cpr/ceprdp/21577.html" target="_blank" rel="noopener">Strömberg, Lei &amp; Wu (2026). The Generative AI Learning Penalty: Evidence from Chinese Secondary Education. CEPR DP21577</a></li><li id="ref-36kr"><a href="https://eu.36kr.com/en/p/3952134936368772" target="_blank" rel="noopener">36Kr 報導</a></li><li id="ref-voxdev"><a href="https://voxdev.org/node/300713" target="_blank" rel="noopener">VoxDev 轉載〈The generative AI learning penalty in secondary school〉</a></li><li id="ref-ednext"><a href="https://www.educationnext.org/the-penalty-students-pay-for-using-ai/" target="_blank" rel="noopener">Education Next〈The Penalty Students Pay for Using AI〉</a></li><li id="ref-voxeu"><a href="https://cepr.org/voxeu/columns/generative-ai-learning-penalty-secondary-school" target="_blank" rel="noopener">Strömberg, Lei &amp; Wu, VoxEU〈The generative AI learning penalty in secondary school〉</a></li><li id="ref-folha"><a href="https://www.bemparana.com.br/bem-estar/ia-prejudica-aprendizado-na-escola-e-piora-desempenho-nas-provas-diz-estudo/" target="_blank" rel="noopener">Folhapress 訪談（Bem Paraná 轉載）</a></li><li id="ref-wgbh">WGBH〈&#x27;Cognitive surrender&#x27;: Are college students who use AI really learning?〉</li><li id="ref-gvm">遠見〈開學演講破百萬瀏覽！陽明交大教授為何勸大學生少用AI？〉</li><li id="ref-wang">王道維〈AI真的傷害了學生的學習嗎？〉（風傳媒）；內引 Shen &amp; Tamkin (2026)、Bastani et al. (2025)、MIT 校級報告 (2026)</li><li id="ref-shahid">Salman Shahid〈The difference between AI-proof and AI-authentic engineering education〉，Times Higher Education</li><li id="ref-fluency">Anthropic Education Report: The AI Fluency Index</li></ol></section><div class="pager"><a href="index.html">← 首頁</a><a href="part2.html">二、提示詞構建心法 →</a></div></main><footer>國立虎尾科技大學｜AI 教師工作坊教材。各網站與文獻內容以原始來源為準。</footer><script src="assets/qrcode.js"></script><script>
 (function(){var tb=document.getElementById('theme'),L={system:'🌓 系統',light:'☀️ 淺色',dark:'🌙 深色'},cur='system';try{cur=localStorage.getItem('theme')||'system'}catch(e){}
 function ap(m){cur=m;if(m==='system')document.documentElement.removeAttribute('data-theme');else document.documentElement.setAttribute('data-theme',m);tb.textContent=L[m];try{localStorage.setItem('theme',m)}catch(e){}}
 ap(cur);tb.addEventListener('click',function(){ap(cur==='system'?'light':cur==='light'?'dark':'system')});
