@@ -1,8 +1,7 @@
 # AI 教師工作坊教材
 
-國立虎尾科技大學教師工作坊的演講教材網站（GitHub Pages）。
+國立虎尾科技大學教師工作坊教材（GitHub Pages）。
 
-- index.html：首頁與實習一覽
-- part1.html：一、AI 素養
-- part2.html：二、提示詞構建心法
-- part3.html：三、AI驅動教材設計與論文寫作
+- index.html：場次目錄
+- 20261117/：2026-11-17 場次（首頁、part1～part3）
+- part1～3.html：舊網址轉址到 20261117/

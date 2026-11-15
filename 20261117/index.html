@@ -1,0 +1,65 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>首頁｜AI 教師工作坊教材</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap"><script>try{var m=localStorage.getItem('theme');if(m&&m!=='system')document.documentElement.setAttribute('data-theme',m)}catch(e){}</script><style>
+:root{--bg:#f6f4ee;--card:#fff;--ink:#1e2a24;--muted:#5b6b62;--line:#e2ddd0;--g:#1f5c46;--g2:#2f7d5f;--soft:#e6efe9;--warn:#fff3e0;--warnb:#e9a23b;--on:#fff;--h1:#1f5c46;--h2:#2f7d5f;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111714;--card:#18211c;--ink:#e6ede9;--muted:#9fb1a7;--line:#2a3830;--g:#7fd1ad;--g2:#5fb894;--soft:#1f2c25;--warn:#2b2214;--warnb:#c98a2b;--on:#0d1a14;--h1:#123d2e;--h2:#1f5c46;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#111714;--card:#18211c;--ink:#e6ede9;--muted:#9fb1a7;--line:#2a3830;--g:#7fd1ad;--g2:#5fb894;--soft:#1f2c25;--warn:#2b2214;--warnb:#c98a2b;--on:#0d1a14;--h1:#123d2e;--h2:#1f5c46;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 "Noto Sans TC",system-ui,"PingFang TC","Microsoft JhengHei",sans-serif}
+a{color:var(--g)}
+.hero{background:linear-gradient(135deg,var(--h1),var(--h2));color:#fff;padding:44px 16px}
+.hin{max-width:960px;margin:0 auto}.eyebrow{margin:0;opacity:.85;letter-spacing:.06em;font-size:14px}
+h1{font-size:clamp(24px,4vw,36px);line-height:1.35;margin:.3em 0;font-weight:900;text-wrap:balance}.lead{margin:0 0 4px;opacity:.95}
+.qrbox{display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.12);border-radius:14px;padding:12px;width:fit-content;max-width:100%;margin-top:16px}
+#qr{background:#fff;padding:6px;border-radius:8px;line-height:0}#qr img{width:110px;height:110px}.qrbox span{display:block;font-size:12px;opacity:.85;word-break:break-all}
+.topnav{position:sticky;top:0;z-index:5;display:flex;gap:6px;align-items:center;overflow-x:auto;padding:10px 16px;background:var(--bg);border-bottom:1px solid var(--line)}
+.topnav a{flex:none;color:var(--g);text-decoration:none;font-weight:700;padding:6px 12px;border-radius:999px;background:var(--soft);font-size:14px}
+.topnav a.on{background:var(--g);color:var(--on)}
+.theme{margin-left:auto;flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 12px;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+main{max-width:960px;margin:0 auto;padding:8px 16px 40px}
+section{padding:28px 0;border-bottom:1px solid var(--line)}
+h2{font-size:24px;line-height:1.4;font-weight:900;display:flex;gap:12px;align-items:center;margin:0 0 14px;text-wrap:balance}
+h2 span{flex:none;display:inline-grid;place-items:center;min-width:44px;height:40px;padding:0 8px;border-radius:10px;background:var(--g);color:var(--on);font-size:17px}
+h3{font-size:18px;margin:22px 0 8px;color:var(--g)}h4{margin:18px 0 6px}
+p{margin:.7em 0}
+.note{font-size:14px;color:var(--muted);background:var(--soft);border-radius:10px;padding:10px 14px}
+blockquote{margin:0;padding:0}blockquote p{margin:.7em 0}
+.src{color:var(--muted);font-size:13px}
+.pre-wrap{position:relative;margin:10px 0}
+.pre-wrap pre{margin:0;border:1px solid var(--line);border-radius:12px;background:var(--card);padding:46px 14px 12px;white-space:pre-wrap;word-break:break-word;font:14px/1.7 "Noto Sans TC",ui-monospace,monospace;max-height:360px;overflow:auto}
+.copy{position:absolute;top:8px;right:8px;border:0;background:var(--g);color:var(--on);border-radius:8px;padding:5px 14px;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+code{background:var(--soft);padding:1px 5px;border-radius:5px;font-size:.92em}pre code{background:none;padding:0}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card);margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--soft);color:var(--g)}
+td:first-child{font-weight:700}
+ul,ol{padding-left:22px}li{margin:4px 0}
+.cards,.parts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin:12px 0}
+.card{display:flex;flex-direction:column;gap:4px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--card);text-decoration:none;color:var(--ink)}
+.card:hover{border-color:var(--g)}.card b{color:var(--g);font-size:17px}.card span{font-size:14px;color:var(--muted)}
+.cite{font-size:.72em;line-height:0;margin-left:1px}.cite a{text-decoration:none;font-weight:700}
+.refs{font-size:14px;color:var(--muted)}.refs li{margin:6px 0;scroll-margin-top:70px}.refs li:target{background:var(--soft);border-radius:6px}
+h2{scroll-margin-top:64px}
+.end{text-align:center}.big p{font-size:clamp(22px,4vw,32px);font-weight:900;color:var(--g);margin:.3em 0}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:30px;flex-wrap:wrap}
+.pager a{padding:10px 16px;border:1px solid var(--line);border-radius:10px;background:var(--card);text-decoration:none;font-weight:700}
+footer{text-align:center;font-size:13px;color:var(--muted);padding:20px 16px 40px}
+</style></head><body><nav class="topnav"><a href="index.html" class="on">首頁</a><a href="part1.html" class="">一、AI 素養</a><a href="part2.html" class="">二、提示詞構建心法</a><a href="part3.html" class="">三、教材設計與論文寫作</a><button class="theme" id="theme" type="button">🌓 系統</button></nav><header class="hero"><div class="hin"><p class="eyebrow">國立虎尾科技大學｜AI Agent實作教師工作坊｜2026-11-17</p>
+<h1>AI 素養 × 提示詞構建心法 × AI 驅動教材設計與論文寫作</h1>
+<p class="lead">演講的完整內容、實習提示詞與表格都在這裡。提示詞按「複製」就能貼到 AI 使用。</p>
+<div class="qrbox"><div id="qr"></div><div><b>分享這份教材</b><span id="url"></span></div></div></div></header>
+<main><section><h2><span>📘</span>三個部分</h2><div class="parts"><a class="card" href="part1.html"><b>一、AI 素養</b><span>AI 怎麼產生答案、學生用 AI 會怎樣，以及兩個現場實習：投票網頁、Agent 部署。</span></a><a class="card" href="part2.html"><b>二、提示詞構建心法</b><span>4D 流程 × 五個組成要素 × 品質檢查：把模糊需求變成可執行、可驗證的提示詞。</span></a><a class="card" href="part3.html"><b>三、AI驅動教材設計與論文寫作</b><span>教案、說人話 Skill、教材成果、課堂與評量，以及論文寫作的 AI Agent 流程。</span></a></div></section>
+<section><h2><span>🧪</span>實習一覽</h2><div class="tw"><table><thead><tr><th>小節</th><th>實習</th><th>工具</th></tr></thead><tbody>
+<tr><td><a href="part1.html#1-4">1-4</a></td><td>用 AI 做一個投票網頁</td><td>ChatGPT／Gemini／Claude</td></tr>
+<tr><td><a href="part1.html#1-5">1-5</a></td><td>AI Agent 自己做網頁、部署到 Vercel</td><td>Claude Code／Codex</td></tr>
+<tr><td><a href="part1.html#1-6">1-6</a></td><td>「3 家」和「三家」小實驗</td><td>任何一家 AI</td></tr>
+<tr><td><a href="part1.html#1-7">1-7</a></td><td>自己做一個 LLM 動態圖解網頁</td><td>ChatGPT／Gemini／Claude</td></tr>
+<tr><td><a href="part3.html#3-2">3-2</a></td><td>說人話：安裝 Skill，做 before／after 對照</td><td>Claude Code／Codex</td></tr>
+</tbody></table></div></section>
+<section class="end"><h2 style="justify-content:center">帶走兩件事</h2><div class="big"><p>越用越懂，越等越遠。</p><p>一套用到熟，勝過套套都試。</p></div></section></main><footer>國立虎尾科技大學｜AI 教師工作坊教材。各網站與文獻內容以原始來源為準。</footer><script src="assets/qrcode.js"></script><script>
+(function(){var tb=document.getElementById('theme'),L={system:'🌓 系統',light:'☀️ 淺色',dark:'🌙 深色'},cur='system';try{cur=localStorage.getItem('theme')||'system'}catch(e){}
+function ap(m){cur=m;if(m==='system')document.documentElement.removeAttribute('data-theme');else document.documentElement.setAttribute('data-theme',m);tb.textContent=L[m];try{localStorage.setItem('theme',m)}catch(e){}}
+ap(cur);tb.addEventListener('click',function(){ap(cur==='system'?'light':cur==='light'?'dark':'system')});
+var q=document.getElementById('qr');if(q){var u=location.href.split('#')[0].replace(/index\.html$/,'');document.getElementById('url').textContent=u;try{var c=qrcode(0,'M');c.addData(u);c.make();q.innerHTML=c.createImgTag(4,0);}catch(e){}}
+document.querySelectorAll('pre').forEach(function(p){var w=document.createElement('div');w.className='pre-wrap';p.parentNode.insertBefore(w,p);w.appendChild(p);var b=document.createElement('button');b.type='button';b.className='copy';b.textContent='複製';w.appendChild(b);
+b.addEventListener('click',function(){var t=p.innerText;var ok=function(){b.textContent='已複製';setTimeout(function(){b.textContent='複製'},1500)};
+var sel=function(){var r=document.createRange();r.selectNodeContents(p);var s=getSelection();s.removeAllRanges();s.addRange(r);};
+if(navigator.clipboard){navigator.clipboard.writeText(t).then(ok,sel)}else sel();});});})();
+</script></body></html>
