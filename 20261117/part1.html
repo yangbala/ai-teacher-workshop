@@ -37,6 +37,8 @@ ul,ol{padding-left:22px}li{margin:4px 0}
 .cite{font-size:.72em;line-height:0;margin-left:1px}.cite a{text-decoration:none;font-weight:700}
 .refs{font-size:14px;color:var(--muted)}.refs li{margin:6px 0;scroll-margin-top:70px}.refs li:target{background:var(--soft);border-radius:6px}
 h2{scroll-margin-top:64px}
+.embed{position:relative;width:100%;height:800px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#070b16;margin:12px 0}.embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+@media (max-width:860px){.embed{height:1150px}}
 .end{text-align:center}.big p{font-size:clamp(22px,4vw,32px);font-weight:900;color:var(--g);margin:.3em 0}
 .pager{display:flex;justify-content:space-between;gap:10px;margin-top:30px;flex-wrap:wrap}
 .pager a{padding:10px 16px;border:1px solid var(--line);border-radius:10px;background:var(--card);text-decoration:none;font-weight:700}
@@ -220,7 +222,10 @@ footer{text-align:center;font-size:13px;color:var(--muted);padding:20px 16px 40p
 <p>對人而言，「3」與「三」代表相同的數量，兩段提示詞的意思幾乎一致。值得思考的是：語意沒有改變，為什麼 AI 的輸出可能不完全相同？原因在於，生成式 AI 並不是從固定的答案庫取出既定答案，而是依據目前的上下文，按照機率逐步產生輸出；楊峻泓《<a href="https://professional-english-ai-literacy.vercel.app/" target="_blank" rel="noopener">專業英文</a>》課程單元 01 將其流程概括為輸入、上下文、機率、預測、生成與輸出<sup class="cite">[<a href="#ref-course">4</a>]</sup>。</p>
 <p>解讀這個實驗時有三點須特別謹慎：不能把差異直接歸因於「3 與三是不同的 Token，所以答案不同」；機率不等於隨機亂猜；也不能斷言每次輸出必然不同<sup class="cite">[<a href="#ref-course">4</a>]</sup>。實驗的目的，是建立「AI 依機率產生答案」的基本觀念，而非預設結果一定相同或一定不同。</p>
 </section><section><h2 id="1-7"><span>1-7</span>動態圖解與實習：LLM 如何處理一則提示詞</h2>
-<p>為了讓「依機率逐步產生」的過程更具體，<a href="https://claude.ai/artifact/NT4x7owYSji7uKYsz6nqMU" target="_blank" rel="noopener">LLM 運作機制動態圖解</a>以 1-6 的提示詞為例，把大型語言模型的處理流程拆成六個階段依序播放。頁面右上角可切換提示詞 A 與 B，也可點選數字直接跳到任一階段。</p>
+<p>為了讓「依機率逐步產生」的過程更具體，下方的 LLM 運作機制動態圖解以 1-6 的提示詞為例，把大型語言模型的處理流程拆成六個階段依序播放。頁面右上角可切換提示詞 A 與 B，也可點選數字直接跳到任一階段。</p>
+<div class="embed"><iframe src="llm-viz.html" title="LLM 運作機制動態圖解" loading="lazy"></iframe></div>
+
+<p><a href="llm-viz.html" target="_blank" rel="noopener">在新分頁開啟全螢幕版</a></p>
 <div class="tw"><table>
 <thead>
 <tr>

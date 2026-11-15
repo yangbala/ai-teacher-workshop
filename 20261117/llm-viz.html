@@ -1,0 +1,238 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>[hidden]{display:none!important}body{margin:0}</style></head><body>
+<title>LLM 運作機制：虎尾美食</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+:root{
+  --bg:#070b16; --panel:#0c1324; --panel2:#0f1830; --line:#1d2742; --fg:#e8eefc; --muted:#8b97b6; --dim:#4b5675;
+  --c1:#22c3e6; --c2:#3b82f6; --c3:#8b5cf6; --c4:#ec4899; --c5:#f59e0b; --c6:#10b981;
+  --accent:var(--c1);
+  color-scheme:dark;
+}
+body{background:var(--bg);color:var(--fg);font-family:"Noto Sans TC",system-ui,-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:40px 40px;}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+.wrap{max-width:1280px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 32px}
+header{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;padding-block:18px;border-bottom:1px solid var(--line)}
+.brand{display:flex;gap:12px;align-items:center;min-width:0}
+.logo{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--c1),var(--c3));display:grid;place-items:center;flex:none;box-shadow:0 0 24px rgba(139,92,246,.35)}
+h1{margin:0;font-size:clamp(18px,2.4vw,24px);font-weight:900;background:linear-gradient(90deg,var(--c1),var(--c3));-webkit-background-clip:text;background-clip:text;color:transparent;text-wrap:balance}
+.sub{font-size:13px;color:var(--muted)}
+.pick{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--muted);min-width:0;flex-wrap:wrap}
+select{background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:10px;padding:8px 12px;font:inherit;font-weight:700;max-width:100%}
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:22px auto 8px;max-width:1000px}
+.step{background:none;border:0;color:var(--muted);padding:10px 4px;border-radius:12px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;font:inherit;font-size:13px;font-weight:700}
+.step .n{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#1e2740;color:var(--muted);font-size:13px}
+.step.on{background:#162036;color:var(--fg)}
+.step.on .n{background:var(--sc);color:#fff;box-shadow:0 0 14px var(--sc)}
+.step.done .n{color:var(--fg)}
+.bar{height:6px;border-radius:6px;background:#1a2238;max-width:1000px;margin:0 auto 18px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--c1),var(--c3),var(--c6));transition:width .6s ease}
+.main{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--panel)}
+.stage{position:relative;min-height:470px;padding:56px 24px 28px;background:radial-gradient(ellipse at 50% 50%,#0f1a36 0%,#060a15 70%);overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.badge{position:absolute;top:16px;left:16px;font:700 12px "JetBrains Mono",monospace;letter-spacing:.08em;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--accent);background:rgba(10,16,32,.8);display:flex;gap:8px;align-items:center}
+.badge::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.cap{font-size:13px;color:var(--accent);margin-bottom:22px;text-align:center;opacity:.9}
+.stars{position:absolute;inset:0;pointer-events:none}
+.stars b{position:absolute;width:2px;height:2px;border-radius:50%;background:#7f8bb0;opacity:.35;animation:tw 4s infinite}
+@keyframes tw{50%{opacity:.08}}
+.side{padding:26px 24px;display:flex;flex-direction:column;gap:14px;border-left:1px solid var(--line);min-width:0}
+.tag{align-self:flex-start;font-size:12px;font-weight:700;padding:5px 10px;border-radius:6px;border:1px solid var(--accent);color:var(--accent);background:rgba(255,255,255,.03)}
+.side h2{margin:0;font-size:24px;font-weight:900;text-wrap:balance}
+.side p{margin:0;line-height:1.75;color:#c9d3ea;font-size:16px}
+.hl{border:1px solid var(--line);border-radius:12px;padding:14px;background:#0a1020}
+.hl h3{margin:0 0 6px;font-size:13px;display:flex;gap:6px;align-items:center}
+.hl h3::before{content:"💡"}
+.hl div{font-size:13px;color:var(--muted);line-height:1.7}
+.ctrl{margin-top:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:14px}
+.btn{border:0;border-radius:10px;padding:10px 16px;font:inherit;font-weight:700;cursor:pointer;color:#fff;background:linear-gradient(90deg,var(--c1),var(--c2))}
+.btn.ghost{background:#16203a;border:1px solid var(--line);color:var(--fg)}
+.speed{margin-left:auto}
+.note{font-size:12px;color:var(--dim);margin-top:14px;line-height:1.7}
+/* stage 1 */
+.prompt{position:relative;border:2px solid var(--c1);border-radius:16px;padding:16px 22px;background:#0b1428;box-shadow:0 0 30px rgba(34,195,230,.35);max-width:100%}
+.prompt small{display:block;color:var(--c1);font:700 12px "JetBrains Mono",monospace;margin-bottom:8px}
+.prompt .t{font-size:clamp(18px,2.6vw,26px);font-weight:900;min-height:1.4em}
+.caret{display:inline-block;width:2px;height:1em;background:var(--c1);vertical-align:-2px;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.ring{position:absolute;width:240px;height:240px;border:1px solid rgba(34,195,230,.25);border-radius:50%;animation:pulse 3s infinite}
+@keyframes pulse{0%{transform:scale(.8);opacity:.8}100%{transform:scale(1.4);opacity:0}}
+/* tokens */
+.toks{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:100%}
+.tok{min-width:58px;padding:10px 10px 8px;border-radius:12px;border:2px solid var(--tc);background:#0d1529;text-align:center;opacity:0;transform:translateY(16px) scale(.9);transition:all .5s cubic-bezier(.2,.8,.2,1)}
+.tok.in{opacity:1;transform:none}
+.tok .w{font-weight:900;font-size:18px}
+.tok .id{font:600 11px "JetBrains Mono",monospace;color:var(--muted);border-top:1px solid var(--line);margin-top:6px;padding-top:4px}
+/* embeddings */
+.emb{display:flex;gap:8px;overflow-x:auto;max-width:100%;padding-bottom:6px}
+.col{flex:none;width:64px;border:1px solid #2a2f55;border-radius:10px;padding:6px;background:#0d1226;display:flex;flex-direction:column;gap:4px}
+.col .h{font-weight:900;font-size:14px;text-align:center;border:1.5px solid var(--tc);border-radius:7px;padding:4px 0;margin-bottom:4px}
+.cell{position:relative;height:20px;border-radius:3px;background:#161c33;overflow:hidden;font:600 10px "JetBrains Mono",monospace;color:#e5e7ff;display:flex;align-items:center;justify-content:center}
+.cell i{position:absolute;left:0;top:0;bottom:0;width:0;transition:width .8s ease}
+.cell span{position:relative}
+/* attention */
+.att{position:relative;width:100%;max-width:760px}
+.att{overflow-x:auto}
+.att svg{width:100%;min-width:620px;height:auto;display:block;overflow:visible}
+.arc{fill:none;stroke:var(--c4);stroke-width:3;filter:drop-shadow(0 0 6px var(--c4));stroke-dasharray:1000;stroke-dashoffset:1000;transition:stroke-dashoffset 1.2s ease}
+.arc.on{stroke-dashoffset:0}
+.albl{opacity:0;transition:opacity .4s}
+.albl.on{opacity:1}
+/* nn */
+.nn{width:100%;max-width:560px}
+.nn line{stroke:var(--c5);stroke-opacity:.35;stroke-width:1.2}
+.nn circle{fill:var(--c5);filter:drop-shadow(0 0 6px var(--c5))}
+.pulse{stroke:#fff;stroke-width:2.2;stroke-opacity:.9;stroke-dasharray:6 200;animation:flow 1.6s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-206}}
+/* generation */
+.gen{width:100%;max-width:560px;display:flex;flex-direction:column;gap:10px}
+.prob{display:grid;grid-template-columns:92px 1fr 48px;gap:10px;align-items:center;font-size:14px}
+.prob .lb{text-align:right;font-weight:700;color:var(--muted)}
+.prob.top .lb{color:var(--c6)}
+.prob .tr{height:22px;border-radius:6px;background:#1a2238;overflow:hidden}
+.prob .tr i{display:block;height:100%;width:0;border-radius:6px;transition:width .9s ease}
+.prob .pc{font:700 12px "JetBrains Mono",monospace;color:var(--muted)}
+.arrow{text-align:center;color:var(--c6);font-size:14px;font-weight:700}
+.out{border:2px solid var(--c6);border-radius:16px;padding:14px 18px;background:#0a1a1a;box-shadow:0 0 26px rgba(16,185,129,.3)}
+.out small{display:block;color:var(--c6);font:700 12px "JetBrains Mono",monospace;margin-bottom:6px}
+.out .t{font-size:17px;font-weight:700;line-height:1.7;min-height:3.4em}
+.out .t em{font-style:normal;background:rgba(16,185,129,.25);border-radius:4px;padding:0 2px}
+.regen{align-self:center}
+@media (max-width:860px){
+  .main{grid-template-columns:1fr}
+  .side{border-left:0;border-top:1px solid var(--line)}
+  .stage{min-height:400px;padding-inline:14px}
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .prob{grid-template-columns:72px 1fr 42px}
+}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <div class="logo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div>
+      <div><h1>LLM 大型語言模型運作機制</h1><div class="sub">Transformer 神經網路推理流程動態視覺化</div></div>
+    </div>
+    <label class="pick">測試提示詞：
+      <select id="sel">
+        <option value="A">「請推薦虎尾科技大學附近 3 家美食。」</option>
+        <option value="B">「請推薦虎尾科技大學附近三家美食。」</option>
+      </select>
+    </label>
+  </header>
+
+  <nav class="steps" id="steps"></nav>
+  <div class="bar"><i id="bar"></i></div>
+
+  <section class="main">
+    <div class="stage" id="stage">
+      <div class="stars" id="stars"></div>
+      <div class="badge" id="badge">STAGE 01 / 06</div>
+      <div id="view" style="position:relative;width:100%;display:flex;flex-direction:column;align-items:center"></div>
+    </div>
+    <aside class="side">
+      <span class="tag" id="tag"></span>
+      <h2 id="ttl"></h2>
+      <p id="desc"></p>
+      <div class="hl"><h3>核心原理亮點</h3><div id="hl"></div></div>
+      <div class="ctrl">
+        <button class="btn" id="play">⏸ 暫停動畫</button>
+        <button class="btn ghost" id="replay" title="從頭播放">↻ 重播</button>
+        <button class="btn ghost speed" id="speed">1.0x 速度</button>
+      </div>
+    </aside>
+  </section>
+  <p class="note">本頁的分詞切法、詞彙表 ID、向量數值、注意力權重與機率，都是教學用的示意數值，不是實際模型內部的數值。實際怎麼切詞、機率多少，依各家模型而定。AI 推薦的店家，請自行查證是否存在、是否還在營業。</p>
+</div>
+
+<script>
+const COLORS=['--c1','--c2','--c3','--c4','--c5','--c6'];
+const STAGES=[
+ {tag:'Input Prompt • 輸入提示詞',t:'1. 接收使用者輸入',cap:'',d:'當你輸入問題時，模型接收到的是一串原始的文字序列。在這個階段，系統尚未理解語意，僅將你的提問載入模型的「上下文視窗」準備進行拆解。',h:'現代大型語言模型可支援數萬至數百萬個字元的超長上下文視窗 (Context Window)。'},
+ {tag:'Tokenization • 分詞處理',t:'2. 切分為詞元 (Tokens)',cap:'Tokenizer 依規則拆解為獨立詞元 (Tokens) 並映射詞彙表 ID',d:'分詞器 (Tokenizer) 會將完整句子切分成最小單位「Token」（可能是詞彙、單字或標點），並將每個 Token 對應到詞彙表中的專屬「數字 ID」。',h:'神經網路只能進行數學運算，因此把文字轉換成整數 ID 是進入模型的第一道橋樑。',hB:'「3」和「三」可能被切成不同的 Token、對到不同的 ID。但要小心：不能直接說「因為 Token 不同，所以答案不同」。'},
+ {tag:'Embeddings • 向量嵌入',t:'3. 轉換為高維語意向量',cap:'Embedding Layer：將離散 ID 轉化為連續高維語意向量 (Vector)',d:'單純的 ID 無法表達詞彙間的關聯。模型透過「嵌入層」將每個 Token 轉換成包含數千個數字的「高維向量」，語意相近的詞在空間中距離會更靠近。',h:'同時會加入「位置編碼 (Positional Encoding)」，讓模型知道詞彙在句子中的前後順序。'},
+ {tag:'Self-Attention • 自注意力機制',t:'4. 捕捉上下文關聯',cap:'Self-Attention：詞彙間互相計算關聯權重，聚焦關鍵語意',d:'這是 Transformer 架構的靈魂！每個 Token 會掃描句子中的其他所有 Token，計算彼此的「注意力權重」。例如「推薦」與「美食」、「附近」與「虎尾科技大學」會產生較強的連線。',h:'透過 Query、Key、Value 三種矩陣運算，模型能理解「附近」指的是哪裡、「家」數的是什麼。'},
+ {tag:'Feed-Forward Network • 深層神經網路',t:'5. 知識檢索與深度推理',cap:'Transformer Layers (FFN)：特徵穿過數十層神經網路進行知識檢索',d:'融合上下文資訊後的向量，會依序通過數十層甚至上百層的「前饋神經網路 (FFN)」。模型在訓練時學到的世界知識就儲存在這些龐大的參數權重中。',h:'每一層都在提煉更抽象的特徵。但模型記住的是統計規律，不是一本最新的店家名冊：店有沒有開、還在不在，要另外查證。'},
+ {tag:'Autoregressive Generation • 機率預測與逐字生成',t:'6. 機率分佈與自迴歸生成',cap:'Softmax 機率分佈預測下一個詞，並透過「自迴歸循環」逐字接龍',d:'最後一層輸出對詞彙表中所有詞的「機率分佈」。模型依機率選出下一個詞，並將它「接回輸入端」重複上述循環，一個詞一個詞接龍完成整段回答。按「再生成一次」，看看同一個提示詞，開頭會不會不一樣。',h:'機率不等於亂猜：機率高的詞比較常被選到。但同一個提示詞再送一次，不保證每次一樣，也不保證每次不同。Temperature（溫度）參數會影響機率分佈的平滑度。'}
+];
+const P={
+ A:{text:'請推薦虎尾科技大學附近 3 家美食。',toks:['請','推薦','虎尾','科技','大學','附近',' 3','家','美食','。'],num:'3 家'},
+ B:{text:'請推薦虎尾科技大學附近三家美食。',toks:['請','推薦','虎尾','科技','大學','附近','三','家','美食','。'],num:'三家'}
+};
+const CAND=n=>[
+ {w:'以下',p:46,s:`以下是虎尾科技大學附近的 ${n}美食推薦：`},
+ {w:'虎尾',p:24,s:`虎尾科技大學附近有這 ${n}美食，值得一試：`},
+ {w:'好的',p:18,s:`好的！以下是虎尾科技大學附近 ${n}人氣美食：`},
+ {w:'推薦',p:12,s:`推薦你虎尾科技大學附近的 ${n}美食：`}
+];
+let cur=0,playing=true,speed=1,timer=null,anim=[],key='A';
+const $=id=>document.getElementById(id);
+const view=$('view');
+// stars
+(()=>{let h='';let s=7;const r=()=>(s=(s*9301+49297)%233280)/233280;for(let i=0;i<60;i++)h+=`<b style="left:${r()*100}%;top:${r()*100}%;animation-delay:${r()*4}s"></b>`;$('stars').innerHTML=h})();
+// steps
+$('steps').innerHTML=['輸入提示','分詞處理','向量嵌入','注意力機制','神經網路','逐字生成'].map((s,i)=>`<button class="step" data-i="${i}" style="--sc:var(${COLORS[i]})"><span class="n">${i+1}</span>${s}</button>`).join('');
+$('steps').addEventListener('click',e=>{const b=e.target.closest('.step');if(b)go(+b.dataset.i,true)});
+function later(fn,ms){anim.push(setTimeout(fn,ms/speed))}
+function clearAnim(){anim.forEach(clearTimeout);anim=[]}
+function idOf(w){let h=0;for(const c of w)h=(h*131+c.codePointAt(0))%90000;return 10000+h}
+function seeded(seed){let s=seed;return()=>(s=(s*16807)%2147483647)/2147483647}
+function go(i,manual){
+  clearAnim();clearTimeout(timer);cur=i;
+  const st=STAGES[i];const col=`var(${COLORS[i]})`;
+  document.documentElement.style.setProperty('--accent',col);
+  $('badge').textContent=`STAGE 0${i+1} / 06`;
+  $('tag').textContent=st.tag;$('ttl').textContent=st.t;$('desc').textContent=st.d;
+  $('hl').textContent=(key==='B'&&st.hB)?st.hB:st.h;
+  document.querySelectorAll('.step').forEach((b,j)=>{b.classList.toggle('on',j===i);b.classList.toggle('done',j<i)});
+  $('bar').style.width=((i+1)/6*100)+'%';
+  RENDER[i]();
+  if(playing)timer=setTimeout(()=>go((cur+1)%6),(i===5?11000:7500)/speed);
+}
+const pr=()=>P[key];
+const RENDER=[
+ ()=>{view.innerHTML=`<div class="ring"></div><div class="prompt"><small>USER PROMPT // 原始輸入字串</small><div class="t"><span id="typ"></span><span class="caret"></span></div></div>`;
+   const s=pr().text;[...s].forEach((c,k)=>later(()=>{const t=$('typ');if(t)t.textContent+=c},150+k*90))},
+ ()=>{const tk=pr().toks;view.innerHTML=`<div class="cap">${STAGES[1].cap}</div><div class="toks">${tk.map((w,k)=>`<div class="tok" style="--tc:var(${COLORS[k%6]})"><div class="w">${w.trim()||'␣'}</div><div class="id">ID ${idOf(w)}</div></div>`).join('')}</div>`;
+   view.querySelectorAll('.tok').forEach((e,k)=>later(()=>e.classList.add('in'),200+k*220))},
+ ()=>{const tk=pr().toks;let h=`<div class="cap">${STAGES[2].cap}</div><div class="emb">`;
+   tk.forEach((w,k)=>{const r=seeded(idOf(w));h+=`<div class="col"><div class="h" style="--tc:var(${COLORS[k%6]})">${w.trim()}</div>`;
+     for(let j=0;j<7;j++){const v=(r()*2-1);h+=`<div class="cell" data-v="${v}"><i style="background:${v>=0?'var(--c3)':'var(--c1)'}"></i><span>${v.toFixed(2)}</span></div>`}h+='</div>'});
+   view.innerHTML=h+'</div>';
+   view.querySelectorAll('.cell').forEach((c,k)=>later(()=>{c.querySelector('i').style.width=(Math.abs(+c.dataset.v)*100)+'%'},150+k*25))},
+ ()=>{const tk=pr().toks;const W=760,gap=W/tk.length,y=210;
+   const xs=tk.map((_,k)=>gap*k+gap/2);
+   const links=[[1,8,94],[5,4,86],[6,7,90],[2,3,72],[8,7,65]];
+   let svg=`<svg viewBox="0 0 ${W} 260">`;
+   links.forEach(([a,b,p],k)=>{const x1=xs[a],x2=xs[b],mx=(x1+x2)/2,hgt=30+Math.abs(x2-x1)*0.28;
+     svg+=`<path class="arc" d="M${x1},${y-22} Q${mx},${y-22-hgt*2} ${x2},${y-22}"/>`+
+     `<g class="albl"><rect x="${mx-24}" y="${y-22-hgt-14}" width="48" height="22" rx="6" fill="#3a1630" stroke="var(--c4)"/><text x="${mx}" y="${y-22-hgt+2}" text-anchor="middle" fill="#fbcfe8" font-size="12" font-weight="700" font-family="JetBrains Mono,monospace">${p}%</text></g>`});
+   tk.forEach((w,k)=>{svg+=`<g><rect x="${xs[k]-gap/2+4}" y="${y-20}" width="${gap-8}" height="40" rx="8" fill="#0d1529" stroke="var(${COLORS[k%6]})" stroke-width="2"/><text x="${xs[k]}" y="${y+6}" text-anchor="middle" fill="#fff" font-size="15" font-weight="900">${w.trim()}</text></g>`});
+   view.innerHTML=`<div class="cap">${STAGES[3].cap}</div><div class="att">${svg}</svg></div>`;
+   view.querySelectorAll('.arc').forEach((a,k)=>later(()=>{a.classList.add('on');view.querySelectorAll('.albl')[k].classList.add('on')},300+k*700))},
+ ()=>{const L=[5,7,7,4],W=560,H=360;const xs=[80,220,360,480];let s=`<svg class="nn" viewBox="0 0 ${W} ${H}">`;const pts=L.map((n,i)=>Array.from({length:n},(_,j)=>[xs[i],H/2+(j-(n-1)/2)*50]));
+   let lines='',pulses='';let r=seeded(42);
+   for(let i=0;i<3;i++)pts[i].forEach(a=>pts[i+1].forEach(b=>{lines+=`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}"/>`;if(r()<.18)pulses+=`<line class="pulse" x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" style="animation-delay:${(r()*1.6+i*.5).toFixed(2)}s;animation-duration:${(1.6/speed).toFixed(2)}s"/>`}));
+   s+=lines+pulses+pts.flat().map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="10"/>`).join('')+'</svg>';
+   view.innerHTML=`<div class="cap">${STAGES[4].cap}</div>${s}`},
+ ()=>{renderGen(0)}
+];
+function pickIdx(){const c=CAND(pr().num);let x=Math.random()*100,acc=0;for(let i=0;i<c.length;i++){acc+=c[i].p;if(x<acc)return i}return 0}
+function renderGen(chosen){
+  const c=CAND(pr().num);
+  view.innerHTML=`<div class="cap">${STAGES[5].cap}</div><div class="gen">${c.map((o,i)=>`<div class="prob ${i===chosen?'top':''}"><span class="lb">${o.w}</span><span class="tr"><i style="background:var(${['--c6','--c2','--c3','--c5'][i]})" data-p="${o.p}"></i></span><span class="pc">${o.p}%</span></div>`).join('')}
+  <div class="arrow">↓ 選中「${c[chosen].w}」，接回輸入端，繼續預測下一個詞</div>
+  <div class="out"><small>AI RESPONSE // 自迴歸逐詞生成結果</small><div class="t" id="gout"></div></div>
+  <button class="btn regen" id="regen">🎲 再生成一次</button></div>`;
+  view.querySelectorAll('.prob i').forEach((e,k)=>later(()=>e.style.width=e.dataset.p+'%',150+k*150));
+  const parts=c[chosen].s.match(/[A-Za-z0-9]+|\s|[一-鿿]{1,2}|./g);
+  let out='';parts.forEach((p,k)=>later(()=>{out+=p;const g=$('gout');if(g)g.innerHTML=(k===0?`<em>${out}</em>`:`<em>${parts[0]}</em>`+out.slice(parts[0].length))+(k===parts.length-1?'<br><span style="color:var(--muted);font-weight:500;font-size:14px">……（接下來的店名，也是同樣一個詞一個詞接下去）</span>':'')},900+k*170));
+  $('regen').onclick=()=>{clearAnim();clearTimeout(timer);renderGen(pickIdx());if(playing)timer=setTimeout(()=>go(0),11000/speed)};
+}
+$('play').onclick=()=>{playing=!playing;$('play').textContent=playing?'⏸ 暫停動畫':'▶ 播放動畫';if(playing)go(cur);else clearTimeout(timer)};
+$('replay').onclick=()=>{playing=true;$('play').textContent='⏸ 暫停動畫';go(0)};
+const SP=[0.5,1,1.5,2];$('speed').onclick=()=>{speed=SP[(SP.indexOf(speed)+1)%SP.length];$('speed').textContent=speed.toFixed(1)+'x 速度';go(cur)};
+$('sel').onchange=e=>{key=e.target.value;go(0)};
+go(0);
+</script>
+</body></html>
