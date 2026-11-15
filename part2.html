@@ -94,7 +94,7 @@ footer{text-align:center;font-size:13px;color:var(--muted);padding:20px 16px 40p
 <p>發現問題並不代表每一項都要提問。資訊缺口可分為三級：Critical 會造成重大誤解或無法執行，應優先釐清；Important 會影響品質但有合理預設，可先預設並說明；Optional 不影響核心任務，不必處理。以論文查核為例，「要摘要文獻還是查核引用主張」屬於 Critical，「是否使用 Markdown 表格」通常屬於 Important，「表格配色」則屬於 Optional。若每發現一個缺口就提問，使用者可能回答了大量問題，仍拿不到可用的提示詞<sup class="cite">[<a href="#ref-4d">1</a>]</sup>。</p>
 </section><section><h2 id="2-5"><span>2-5</span>D3 構建：把模糊動詞轉為可觀察的操作</h2>
 <p>D3 才是實際的提示詞設計。它不是把原句寫得更長，也不是每次都硬加角色、背景、步驟與範例，而是依任務特性組織必要資訊。關鍵在於把模糊的動詞換成可觀察的操作：「仔細閱讀論文」是抽象要求，「擷取每一處引用標記及其對應句子」則具體、可檢查，也較容易發現遺漏；同理，「找出引用」可改為「擷取內文引用標記及其對應研究主張」，「確認是否正確」可改為「比較原始證據與引用主張的支持程度」<sup class="cite">[<a href="#ref-4d">1</a>]</sup>。</p>
-<p>數位時代整理 Anthropic 官方指南的文章也提供相同方向的實例：刪掉「請仔細分析」。Anthropic 測試發現，刪除「請仔細思考」這類句子後，AI 開始回應的時間提前，品質卻沒有明顯下降；與其提醒它多想，不如把篇幅用來寫清楚要找什麼、附上什麼證據、以什麼格式交付<sup class="cite">[<a href="#ref-bnext">2</a>]</sup>。例如，把「請仔細分析第三季營收」改寫為「分析附件的第三季營收，找出跌幅最大的 3 個月份。每個月份列出可能原因、支持證據與一項改善建議，以表格呈現。」<sup class="cite">[<a href="#ref-bnext">2</a>]</sup></p>
+<p>數位時代〈<a href="https://www.bnext.com.tw/article/92450/claude-opus-5-5-prompting-tips" target="_blank" rel="noopener">Claude最新提示詞指南！別再叫AI「請仔細分析」</a>〉整理 Anthropic 官方指南，也提供相同方向的實例：刪掉「請仔細分析」。Anthropic 測試發現，刪除「請仔細思考」這類句子後，AI 開始回應的時間提前，品質卻沒有明顯下降；與其提醒它多想，不如把篇幅用來寫清楚要找什麼、附上什麼證據、以什麼格式交付<sup class="cite">[<a href="#ref-bnext">2</a>]</sup>。例如，把「請仔細分析第三季營收」改寫為「分析附件的第三季營收，找出跌幅最大的 3 個月份。每個月份列出可能原因、支持證據與一項改善建議，以表格呈現。」<sup class="cite">[<a href="#ref-bnext">2</a>]</sup></p>
 <p>構建時應優先滿足五個條件：任務明確、資訊充分、限制一致、成果明確，以及最小必要複雜度，也就是不加入沒有實際價值的規則。複雜任務所需的執行流程、查核標準與例外處理，是建立在五要素之上的延伸，不必硬塞成第六、第七個要素<sup class="cite">[<a href="#ref-4d">1</a>]</sup>。</p>
 </section><section><h2 id="2-6"><span>2-6</span>品質檢查六問與 D4 交付</h2>
 <p>構建與交付之間，應設置一個品質檢查點，逐一確認以下六個問題<sup class="cite">[<a href="#ref-4d">1</a>]</sup>。</p>
@@ -133,7 +133,7 @@ footer{text-align:center;font-size:13px;color:var(--muted);padding:20px 16px 40p
 </tbody>
 </table></div>
 <p>檢查不通過時，應回到前面的階段修正，而不是直接交付。交付時則須區分主要交付物與輔助說明：前者是完整、可直接複製的提示詞，後者是重大修改的原因、必要假設與使用限制。一般提示詞不需要每次附上冗長的診斷報告；學術研究或複雜工作流程，才需附上較詳細的設計依據與驗收條件<sup class="cite">[<a href="#ref-4d">1</a>]</sup>。</p>
-<p>「可驗證」有一種很實用的寫法：寫清楚終點線。長任務應寫出完成標準與唯一的停止條件，例如「列一份待辦清單，全部完成才結束」或「只有遇到必須由我決定的問題才停下」<sup class="cite">[<a href="#ref-bnext">2</a>]</sup>。而「檢查不通過就回頭修正」，在實際使用上就是反覆修改。Anthropic 分析 9,830 段 Claude 對話，以 Dakan 與 Feller 兩位教授的「AI 熟練度 4D 框架」觀察 11 種好習慣，發現最常見的是反覆修改：85.7% 的對話中，使用者會在 AI 的回答上持續追問與修正。有反覆修改的對話平均多出 2.67 個好習慣，是未修改對話的兩倍；使用者質疑 AI 推理的機率高 5.6 倍，發現 AI 缺少背景資訊的機率高 4 倍<sup class="cite">[<a href="#ref-fluency">3</a>]</sup>。</p>
+<p>「可驗證」有一種很實用的寫法：寫清楚終點線。長任務應寫出完成標準與唯一的停止條件，例如「列一份待辦清單，全部完成才結束」或「只有遇到必須由我決定的問題才停下」<sup class="cite">[<a href="#ref-bnext">2</a>]</sup>。而「檢查不通過就回頭修正」，在實際使用上就是反覆修改。Anthropic 的〈<a href="https://www.anthropic.com/research/AI-fluency-index" target="_blank" rel="noopener">AI Fluency Index</a>〉報告分析 9,830 段 Claude 對話，以 Dakan 與 Feller 兩位教授的「AI 熟練度 4D 框架」觀察 11 種好習慣，發現最常見的是反覆修改：85.7% 的對話中，使用者會在 AI 的回答上持續追問與修正。有反覆修改的對話平均多出 2.67 個好習慣，是未修改對話的兩倍；使用者質疑 AI 推理的機率高 5.6 倍，發現 AI 缺少背景資訊的機率高 4 倍<sup class="cite">[<a href="#ref-fluency">3</a>]</sup>。</p>
 </section><section><h2 id="2-7"><span>2-7</span>五個組成要素：Task、Context、Constraints、Format、Role</h2>
 <p>五個要素是資訊分類架構，不是固定格式，也不是每個提示詞都必須列滿的欄位<sup class="cite">[<a href="#ref-4d">1</a>]</sup>。</p>
 <p>Task（任務）是核心，應包含執行行為與期望成果。「幫我分析論文」範圍過廣，「查核目標論文中每項引用主張是否受到原始文獻支持」則明確且可驗證；宜優先使用辨識、擷取、比較、分類、驗證、產生等可觀察的動詞。也要注意 Task 不等於 Role：「你是一位學術研究助理」不是任務，「確認引用主張是否受到原始文獻支持」才是<sup class="cite">[<a href="#ref-4d">1</a>]</sup>。</p>
