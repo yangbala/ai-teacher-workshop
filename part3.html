@@ -1,0 +1,305 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>三、AI驅動教材設計與論文寫作｜AI 教師工作坊教材</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap"><style>
+:root{--bg:#f6f4ee;--card:#fff;--ink:#1e2a24;--muted:#5b6b62;--line:#e2ddd0;--g:#1f5c46;--g2:#2f7d5f;--soft:#e6efe9;--warn:#fff3e0;--warnb:#e9a23b}
+@media (prefers-color-scheme:dark){:root{--bg:#111714;--card:#18211c;--ink:#e6ede9;--muted:#9fb1a7;--line:#2a3830;--g:#7fd1ad;--g2:#5fb894;--soft:#1f2c25;--warn:#2b2214;--warnb:#c98a2b;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 "Noto Sans TC",system-ui,"PingFang TC","Microsoft JhengHei",sans-serif}
+.hero{background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;padding:48px 16px}
+@media (prefers-color-scheme:dark){.hero{background:linear-gradient(135deg,#123d2e,#1f5c46)}}
+.hin{max-width:960px;margin:0 auto}.eyebrow{margin:0;opacity:.85;letter-spacing:.06em;font-size:14px}
+h1{font-size:clamp(24px,4vw,36px);line-height:1.35;margin:.3em 0;font-weight:900;text-wrap:balance}.lead{margin:0 0 20px;opacity:.95}
+.qrbox{display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.12);border-radius:14px;padding:12px;width:fit-content;max-width:100%}
+#qr{background:#fff;padding:6px;border-radius:8px;line-height:0}#qr img{width:110px;height:110px}.qrbox span{display:block;font-size:12px;opacity:.85;word-break:break-all}
+.toc{position:sticky;top:0;z-index:5;display:flex;gap:6px;overflow-x:auto;padding:10px 16px;background:var(--bg);border-bottom:1px solid var(--line)}
+.toc a{flex:none;color:var(--g);text-decoration:none;font-weight:700;padding:6px 12px;border-radius:999px;background:var(--soft);font-size:14px}
+main{max-width:960px;margin:0 auto;padding:8px 16px 40px}section{padding:28px 0;border-bottom:1px solid var(--line)}
+h2{font-size:26px;font-weight:900;display:flex;gap:12px;align-items:center;margin:0 0 12px}h2 span{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:10px;background:var(--g);color:#fff;font-size:20px}
+@media (prefers-color-scheme:dark){h2 span{color:#0d1a14}}
+h3{font-size:19px;margin:28px 0 8px;color:var(--g)}h4{margin:18px 0 6px}
+.note{font-size:14px;color:var(--muted);background:var(--soft);border-radius:10px;padding:10px 14px}
+.warn{background:var(--warn);border-left:4px solid var(--warnb);padding:10px 14px;border-radius:8px;font-weight:700}
+.prompt{border:1px solid var(--line);border-radius:12px;background:var(--card);margin:10px 0;overflow:hidden}
+.ph{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 12px;background:var(--soft);font-weight:700;font-size:14px}
+.pn{margin:0;padding:6px 12px;font-size:13px;color:var(--muted)}
+.copy{border:0;background:var(--g);color:#fff;border-radius:8px;padding:5px 14px;font:inherit;font-weight:700;cursor:pointer}
+@media (prefers-color-scheme:dark){.copy{color:#0d1a14}}
+pre{margin:0;padding:12px 14px;white-space:pre-wrap;word-break:break-word;font:14px/1.7 "Noto Sans TC",ui-monospace,monospace;max-height:340px;overflow:auto}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card);margin:8px 0}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--soft);color:var(--g)}
+td:first-child{font-weight:700;white-space:nowrap}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin:8px 0}
+.card{display:flex;flex-direction:column;gap:4px;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--card);text-decoration:none;color:var(--ink)}
+.card:hover{border-color:var(--g)}.card b{color:var(--g)}.card span{font-size:14px;color:var(--muted)}.card small{font-size:12px;color:var(--muted);word-break:break-all}
+.steps{padding-left:22px}.steps li{margin:10px 0}
+.end{text-align:center}.big p{font-size:clamp(22px,4vw,32px);font-weight:900;color:var(--g);margin:.3em 0}
+footer{text-align:center;font-size:13px;color:var(--muted);padding:20px 16px 40px}
+a{color:var(--g)}
+
+.src{color:var(--muted);font-size:13px;white-space:nowrap}
+blockquote{margin:12px 0;padding:2px 0 2px 16px;border-left:3px solid var(--line)}
+blockquote p{margin:.6em 0}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:30px;flex-wrap:wrap}
+.pager a{padding:10px 16px;border:1px solid var(--line);border-radius:10px;background:var(--card);text-decoration:none;font-weight:700}
+.topnav{display:flex;gap:6px;overflow-x:auto;padding:10px 16px;background:var(--bg);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.topnav a{flex:none;color:var(--g);text-decoration:none;font-weight:700;padding:6px 12px;border-radius:999px;background:var(--soft);font-size:14px}
+.topnav a.on{background:var(--g);color:#fff}
+.pre-wrap{position:relative}.pre-wrap .copy{position:absolute;top:8px;right:8px}
+.pre-wrap pre{border:1px solid var(--line);border-radius:12px;background:var(--card);padding-top:44px}
+.page-h{background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;padding:32px 16px}
+.page-h h1{margin:0}.page-h p{margin:.4em 0 0;opacity:.92}
+.parts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin:16px 0}
+</style></head><body><nav class="topnav"><a href="index.html" class="">首頁</a><a href="part1.html" class="">一、AI 素養</a><a href="part2.html" class="">二、提示詞構建心法</a><a href="part3.html" class="on">三、教材設計與論文寫作</a></nav><header class="page-h"><div class="hin"><h1>三、AI驅動教材設計與論文寫作</h1><p>教案、說人話 Skill、教材成果、課堂與評量，以及論文寫作的 AI Agent 流程。</p></div></header><main><p class="note">〔流程文件〕指講者提供的論文寫作流程文件；〔說人話教材〕指講者整理的 speak-human-tw 教學說明。</p><h3 id="3-1">3-1 教師 AI 素養教案：用 AI 備課，也是在學 AI 素養</h3>
+<blockquote>
+<p>先看一個完整的例子：用 AI 備課，同時也是在學 AI 素養。網站：<a href="https://teacher-ai-literacy-course.vercel.app/" target="_blank" rel="noopener">教師AI素養教案</a></p>
+<p>這份教學設計手冊的對象是大學教師。老師在裡面同時有兩個角色：一個是 AI 素養的學習者，一個是教案設計者。核心教材是教育部的《教育與研究之生成式人工智慧應用指引》：老師分析指引、設定學習目標、診斷起點、完成活動，最後做出一份可教、可評量、可驗證的教案。<span class="src">〔教師AI素養教案網站〕</span></p>
+<p>核心流程有七步：A1 教材分析、A2 學習者情境、A3 學習目標、A4 課前診斷、A5 活動與證據、A6 整合教案、A7 品質檢核；進階再延伸到 A8 Skill 封裝、A9 Agentic Workflow。<span class="src">〔同上〕</span></p>
+<p>分工很清楚：AI 可以分析 PDF、找概念、草擬目標和評量、檢查對齊、建議通過或需要修改；但概念正確性、最終目標、活動和評量是否有效、證據夠不夠、責任怎麼分，以及最後的品質判定，都由老師決定。<span class="src">〔同上〕</span></p>
+<p>每一步都要留下證據，而且證據不是 AI 的產出本身。例如 A1 的學習證據，是老師對每個概念「保留、修改、刪除」的決定和理由。<span class="src">〔同上〕</span></p>
+</blockquote>
+<p><strong>範例</strong></p>
+<blockquote>
+<p>給老師一個模糊的提示詞：「請根據這份PDF幫我設計一堂AI素養課。」請老師判斷要怎麼回應、為什麼。觀察重點是：有沒有注意到來源、學習者情境、目標、時間和輸出要求。<span class="src">〔同上〕</span></p>
+<p>這正是第二部分 D1、D2 在做的事：先拆解需求，再找出缺口。</p>
+</blockquote>
+<p><strong>五項不可破壞的核心原則</strong>：教材要可追溯；每一步一個主要責任；能力要留下證據；AI 協助、人負責；先完成核心教案再談自動化。<span class="src">〔同上〕</span></p>
+<p>網站的 A3 用的是 AI Fluency 4D（Delegation、Description、Discernment、Diligence），和第二部分的提示詞 4D 流程名字一樣、內容不同。</p>
+<h3 id="3-2">3-2 說人話：用 Agent 安裝 Skill，做 before／after 對照</h3>
+<p><strong>⚠ 使用工具：只用 Agent，不用網頁版</strong></p>
+<blockquote>
+<p>這個實習只能用 Agent，也就是 Claude Code 或 Codex，禁止用 ChatGPT 網頁版和 Claude 網頁版。網頁版不能把 Skill 裝進電腦裡，也不能直接存檔、產生對照檔，做不出 before／after 比較。</p>
+</blockquote>
+<p><strong>步驟 ①：先產生 before（還沒裝 Skill）</strong></p>
+<blockquote>
+<p>先不要裝任何東西。打開 Agent，貼上這段，讓它寫一則考試公告。【】內是預設值，可以直接用。</p>
+</blockquote>
+<p>複製貼上：</p>
+<pre><code>請在目前資料夾建立一個新資料夾「說人話實習」，在裡面寫一則校內考試公告，存成「公告-before.md」。
+內容：【期中考】考試公告，科目【計算機概論】，日期【11 月 25 日（三）】，時間【10:10–12:00】，地點【電機館 101 教室】，對象【修課學生】，約 200 字。
+</code></pre>
+<p><strong>步驟 ②：圈出 AI 味</strong></p>
+<blockquote>
+<p>打開「公告-before.md」，看看哪些句子一看就是 AI 寫的。</p>
+<p>常見的 AI 痕跡有：「在當今瞬息萬變的時代」這種大帽子開場；「總的來說」「綜上所述」這種罐頭結尾；「不僅……更……」；硬湊的「首先、其次、最後」；還有中國用語，像視頻、質量、信息，和半形標點。<span class="src">〔說人話提示詞，改寫自 speak-human-tw〕</span></p>
+</blockquote>
+<p><strong>步驟 ③：請 Agent 自己安裝 Skill</strong></p>
+<blockquote>
+<p>這是雷蒙（Raymond Hou）開源的 Skill，叫 speak-human-tw，MIT 授權。它會抓 38 種 AI 寫作痕跡，也會把中國用語和半形標點改成台灣用法。它不會直接改，會先列一張清單，寫出原句、為什麼要改、建議怎麼改，等你勾選才動筆。作者沒寫過的經歷或立場，它不會替你編，只會標「需作者補充」。<span class="src">〔speak-human-tw，GitHub〕</span></p>
+<p>安裝不用自己打指令，直接請 Agent 裝。<span class="src">〔install/claude-code.md「方法三：讓 agent 自己裝」〕</span></p>
+</blockquote>
+<p>Claude Code 複製貼上（作者原文）：</p>
+<pre><code>幫我安裝這個 skill：[https://github.com/Raymondhou0917/speak-human-tw](https://github.com/Raymondhou0917/speak-human-tw)
+clone 到 ~/.claude/skills/speak-human-tw
+</code></pre>
+<p>Codex 複製貼上：</p>
+<pre><code>幫我安裝這個 skill：[https://github.com/Raymondhou0917/speak-human-tw](https://github.com/Raymondhou0917/speak-human-tw)
+clone 到 ~/.codex/skills/speak-human-tw
+</code></pre>
+<p>裝完開一個新對話（Claude Code 也可以重啟），Skill 才會被讀到。<span class="src">〔install/claude-code.md、install/codex.md〕</span></p>
+<p><strong>步驟 ④：去 AI 味，先看清單</strong>
+複製貼上：</p>
+<pre><code>幫我校對「說人話實習/公告-before.md」，走一遍去 AI 味流程，先列清單給我看。
+</code></pre>
+<blockquote>
+<p>它會先判斷情境、鎖住不能動的內容（日期、時間、地點這些），再逐條列出建議。看清單，想改哪幾條就回覆，例如「都改」或「只改第 3 條」。<span class="src">〔install/claude-code.md；README〕</span></p>
+</blockquote>
+<p><strong>步驟 ⑤：存成 after，原檔不動</strong>
+複製貼上：</p>
+<pre><code>都改。改好的版本另存成「說人話實習/公告-after.md」，「公告-before.md」不要動。
+</code></pre>
+<p><strong>步驟 ⑥：做前後對照網頁</strong>
+複製貼上：</p>
+<pre><code>請把「公告-before.md」和「公告-after.md」做成一個左右對照的 HTML 網頁，存成「說人話實習/對照.html」，做完幫我打開。
+每一處修改都標出：原句／改後／屬於哪一類 AI 痕跡。
+最後檢查日期、時間、地點、科目、人名、數字是否一字沒變，把檢查結果寫在網頁最下面。
+</code></pre>
+<blockquote>
+<p>1-4 做投票網頁時，是自己複製、貼上、再請 AI 修改；這裡 Agent 自己讀 Skill、自己存檔、自己做對照。</p>
+<p>同一套規則，可以是一段提示詞、一個 Skill，也可以是 Agent 的一個環節，差別只在自動化程度。<span class="src">〔說人話教材〕</span></p>
+<p>這個工具用來潤飾老師自己的文字，不是拿來幫學生躲 AI 偵測，原作者也明講這點。<span class="src">〔說人話教材；speak-human-tw〕</span></p>
+<p>說人話也照心法在做事：先「判情境」、鎖住不能動的內容是限制；「先列清單、等我回覆」是格式；最後檢查日期地點一字沒變，就是交付前的品質檢查。</p>
+<p>公告、講義可以這樣潤飾，整份教材也可以用 AI 做出來。下一節看一個實際的成果。</p>
+</blockquote>
+<h3 id="3-3">3-3 成果介紹：電子學補充教材（以電子學(一)為例）</h3>
+<blockquote>
+<p>網站：<a href="https://electronics-supplement.vercel.app/" target="_blank" rel="noopener">電子學補充教材</a>。這個網站是電子學的補充教材，透過範例、模擬和練習輔助學習。<span class="src">〔電子學補充教材網站〕</span></p>
+<ul>
+<li>第 1 章 訊號與放大器：用降噪耳機說明訊號，搭配示波器觀察訊號疊加，說明為什麼被動電阻不能構成放大器</li>
+<li>第 2 章 運算放大器：用感測器訊號放大，說明輸入、放大倍率和輸出的關係</li>
+<li>第 3 章 二極體：PN 二極體模擬器，可以連續調整偏壓，看空乏區寬度、門檻電壓和 I-V 曲線的變化，附觀念測驗</li>
+<li>第 9 章 頻率響應：極點與零點探索工具，看極點、零點在左右半平面時對穩定性和響應的影響</li>
+<li>電子學題庫：收錄 111～115 學年度四技二專試題，依 Sedra/Smith 第八版章節分類，有四級難度、完整推導和作答統計</li>
+<li>電子學實習：光敏電阻模組技能測驗，列出電路設計、量測、PCB 工程師需要的技能地圖</li>
+<li>教學工具：隨機抽點名單，同一輪不會重複抽到同一人<span class="src">〔同上〕</span>
+</li>
+</ul>
+</blockquote>
+<h3 id="3-4">3-4 四階段課堂：做 → 增強 → 挑戰 → 辯護</h3>
+<blockquote>
+<p>回到我們自己的課堂。1-14 提到的 Shahid 老師，在曼徹斯特大學教化學工程。他試出一個四階段的做法：做（Act）→ 增強（Augment）→ 挑戰（Challenge）→ 辯護（Defend）。他強調順序很重要：AI 應該在學生思考之後才進來，而不是之前。</p>
+<p>第一步，做。先請學生自己試。不一定要算完整個題目，可以是定義問題、確定系統邊界、寫下假設、判斷需要哪些資訊，或說明哪些原理相關。他說，如果自己沒有先發展出方法，就很容易接受 AI 給的方法。</p>
+<p>第二步，增強。學生試過之後，才讓 AI 進來，但不要一開始就說「幫我解這題」。他請學生限制 AI 的角色，例如：「扮演工程導師。不要直接給最終答案。審查我提出的方法，指出不恰當的假設，質疑我的推理，並提出替代方案。」AI 不再只是給答案，而是用來提問、拓展思考。</p>
+<p>第三步，挑戰。學生把 AI 的建議和自己的原稿比較：AI 改進了哪些地方？哪裡錯了？它的假設和我一樣嗎？單位和計算一致嗎？符合物理定律嗎？專業使用前還要檢查什麼？他有時會故意給學生一份含錯誤的 AI 答案，請學生找錯。他說，不懂物料平衡的學生，沒辦法可靠地認出 AI 算錯的物料平衡；提示詞寫得再巧，也補不了基本原理的不足。</p>
+<p>第四步，辯護。學生把成果交給另一組，對方扮演審查者，質疑假設、計算和建議，原本的小組要回應並說明自己的決定。他問：專業工作裡同事本來就會這樣互相審查，學生為什麼不在畢業前就練習？<span class="src">〔Shahid, Times Higher Education〕</span></p>
+<p>他的結論是：學生基礎知識理解得越透徹，越能批判性地使用 AI。AI 沒有降低老師的角色，而是讓老師更專注在難以自動化的事：設計有意義的問題、挑戰假設、促進討論、給回饋，以及幫學生培養判斷力。<span class="src">〔Shahid〕</span></p>
+</blockquote>
+<h3 id="3-5">3-5 評量改看過程：草稿、版本紀錄、口頭說明</h3>
+<blockquote>
+<p>評量也可以跟著調整。</p>
+<p>HEPI 的建議是：評量設計要讓作弊變難，並真正重視學習過程，例如草稿、版本紀錄，以及學生說明自己論點的能力。<span class="src">〔HEPI〕</span></p>
+<p>1-10 的布朗大學 Serrano 教授，這學期把作業成績比重降到 0%，每堂課加一個倫理問題，並加上口試。<span class="src">〔WGBH〕</span>亞利桑那州立大學的 Cohen 院長則說，與其一直巡邏抓作弊，不如重新設計作業和課堂，設計要求學生主動學習的課程。<span class="src">〔WGBH〕</span></p>
+<p>台大人類學系的助教也建議：學生揭露 AI 使用不應該扣分，改評推導和思考過程。<span class="src">〔芭樂人類學〕</span></p>
+</blockquote>
+<p><strong>延伸實例：FPGA Verilog 訓練平台</strong>
+- 網址：<a href="https://fpga-training.vercel.app/" target="_blank" rel="noopener">fpga-training.vercel.app</a>
+- 給大學生的 Verilog 練習平台：練習題由初階、中階到進階漸進安排；「自我檢核」讓學習者逐步確認理解、記錄學習進度<span class="src">〔FPGA Verilog 訓練平台網站〕</span></p>
+<blockquote>
+<p>像這個 FPGA 訓練平台，用「自我檢核」記錄每一步的學習進度，就是把過程留下來的一種做法。</p>
+</blockquote>
+<h3 id="3-6">3-6 論文寫作：從文獻 PDF 到研究計畫書背景的 AI Agent 流程</h3>
+<blockquote>
+<p>第二部分的 4D，不只用在一段提示詞，也可以撐起一整條論文寫作的流程。</p>
+<p>這條流程分成三段。第一段是文獻搜尋，負責找文獻、找合法的 PDF、核對題名和版本。第二段把論文 PDF 轉成 Obsidian 可以讀的 Markdown，保留圖片、表格、公式和來源資訊。第三段在文獻資料夾有新資料時，接著撰寫研究計畫書的「研究計畫之背景」。<span class="src">〔流程文件〕</span></p>
+<p>第二段的轉檔，要逐篇通過七關，每一關都要有可以追溯的證據。不能因為檔案存在、轉換程式正常結束，或單一檢查程式通過，就宣稱整篇完成。<span class="src">〔流程文件〕</span></p>
+<p>第三段撰寫計畫書背景，也照 4D 走：先拆解審查規範和工程問題，再建立文獻證據表、檢查研究缺口，然後提出研究定位給研究者確認；確認之後才寫正式背景，最後附「主張與證據檢核表」，再從審查委員的角度檢查一次。<span class="src">〔流程文件〕</span></p>
+<p>整條流程有一個共同原則：不得杜撰文獻、DOI、網址、數值或研究結果；只看過摘要的文獻，不能宣稱已查核全文。<span class="src">〔流程文件〕</span></p>
+</blockquote>
+<p><strong>三階段與銜接</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>階段</th>
+<th>做什麼</th>
+<th>交給下一段的東西</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① 文獻搜尋（前段排程）</td>
+<td>搜尋文獻、取得合法 PDF、核對題名與版本</td>
+<td>文獻子資料夾＋交接資料（標示「已核對」只算交接資訊，要複核）</td>
+</tr>
+<tr>
+<td>② PDF 轉 Markdown（七關）</td>
+<td>逐篇轉檔、格式檢查、內容抽查、歸檔驗證、清理暫存 PDF</td>
+<td>已驗證的 Markdown＋processing_manifest.json＋processing_checklist.md＋HTML 狀態</td>
+</tr>
+<tr>
+<td>③ 研究計畫之背景（4D）</td>
+<td>拆解規範 → 文獻證據表 → 研究定位（人工確認）→ 正式背景＋檢核表</td>
+<td>背景初稿、主張與證據檢核表、審查意見</td>
+</tr>
+</tbody>
+</table></div>
+<p>銜接觸發：文獻搜尋結果資料夾有新增的資料夾時，自動進行計畫書撰寫<span class="src">〔流程文件第 1 行〕</span></p>
+<p><strong>PDF 轉 Markdown 的七關（白話版）</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>關卡</th>
+<th>白話說法</th>
+<th>怎樣才算過</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>確認是哪一篇</td>
+<td>題名、作者、年份、DOI、版本都對得上，不會認錯論文，也不會把預印本當成正式版</td>
+</tr>
+<tr>
+<td>2</td>
+<td>確認 PDF 合法又能用</td>
+<td>知道從哪裡合法取得；檔案打得開，而且真的是這篇的全文，不是登入頁、摘要頁或壞檔</td>
+</tr>
+<tr>
+<td>3</td>
+<td>整篇轉成 Markdown</td>
+<td>全文都轉完，沒有漏頁；章節、表格、公式、圖片都有轉出來</td>
+</tr>
+<tr>
+<td>4</td>
+<td>檢查排版</td>
+<td>標題層級、表格、公式、圖片連結沒有跑掉，也沒有亂碼或大段重複</td>
+</tr>
+<tr>
+<td>5</td>
+<td>對照原文抽查</td>
+<td>拿原 PDF 對照首頁、摘要、方法、結果、結論、參考文獻，以及代表性的表格、公式；重要數值、單位、否定句沒有轉錯</td>
+</tr>
+<tr>
+<td>6</td>
+<td>放進資料夾，再讀一次確認</td>
+<td>檔案放到正式位置後重新讀回來，內容、圖片數量、連結都和驗證過的一樣</td>
+</tr>
+<tr>
+<td>7</td>
+<td>清掉暫存 PDF</td>
+<td>前六關都過了，才刪掉這次流程下載的暫存 PDF；老師自己的 PDF、來源不明或唯一備份一律保留，並寫下理由</td>
+</tr>
+</tbody>
+</table></div>
+<p>每一關的狀態只有四種：通過、待處理、失敗、卡住。第 7 關可以是「保留（附理由）」。「檔案已經在，但還沒驗證」不算通過。<span class="src">〔流程文件〕</span></p>
+<p><strong>計畫書背景的 4D 與人工確認點</strong></p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>4D</th>
+<th>產出</th>
+<th>人要確認什麼</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Deconstruct</td>
+<td>「審查問題與所需證據」對照表；核心工程問題（對象、場景、條件、現有方法、限制、觀察指標）</td>
+<td>應用需求、技術瓶頸、研究問題有沒有分清楚</td>
+</tr>
+<tr>
+<td>Diagnose</td>
+<td>文獻證據表（含具體證據位置、查核程度、支持哪項主張）</td>
+<td>研究缺口是否真的成立</td>
+</tr>
+<tr>
+<td>Develop</td>
+<td>核心問題陳述；「既有證據 → 證據邊界 → 擬研究問題 → 方法 → 驗證 → 貢獻」對照表；章節架構；可能的審查質疑</td>
+<td><strong>研究問題、證據邊界、原創性定位</strong>（確認後才進 Deliver）</td>
+</tr>
+<tr>
+<td>Deliver</td>
+<td>正式「研究計畫之背景」＋主張與證據檢核表＋審查委員角度檢查</td>
+<td>措辭是否超出證據</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="3-7">3-7 小結：帶走兩件事</h3>
+<blockquote>
+<p>最後，帶走兩件事。</p>
+<p>第一，<strong>越用越懂，越等越遠。</strong> AI 不是看懂的，是用懂的。用得越多，越清楚它哪裡可靠、哪裡要查證；越晚開始，就越跟不上。</p>
+<p>第二，<strong>一套用到熟，勝過套套都試。</strong> 挑一套適合自己的 AI 工具，固定用下去，不用跟著新工具變來變去。</p>
+<p>寫下一件下週就能用你那一套 AI 做的事。</p>
+</blockquote>
+<p><strong>延伸參考</strong>
+- 研究生培訓指南網站：<a href="https://graduate-training-guide-brgw1h1dt-yangbala-1511s-projects.vercel.app/" target="_blank" rel="noopener">https://graduate-training-guide-brgw1h1dt-yangbala-1511s-projects.vercel.app/</a></p>
+<h2>參考資料</h2>
+<ul>
+<li>教師AI素養教案網站：<a href="https://teacher-ai-literacy-course.vercel.app/" target="_blank" rel="noopener">https://teacher-ai-literacy-course.vercel.app/</a></li>
+<li>電子學補充教材網站：<a href="https://electronics-supplement.vercel.app/" target="_blank" rel="noopener">https://electronics-supplement.vercel.app/</a></li>
+<li>FPGA Verilog 訓練平台：<a href="https://fpga-training.vercel.app/" target="_blank" rel="noopener">https://fpga-training.vercel.app/</a></li>
+<li>研究生培訓指南網站（延伸參考）：<a href="https://graduate-training-guide-brgw1h1dt-yangbala-1511s-projects.vercel.app/" target="_blank" rel="noopener">https://graduate-training-guide-brgw1h1dt-yangbala-1511s-projects.vercel.app/</a></li>
+<li>Anthropic Education Report: The AI Fluency Index（講者蒐集資料）</li>
+<li>數位時代〈Claude提示詞指南！別再叫AI「請仔細分析」，Opus 5.5最新用法教學〉（講者蒐集資料）</li>
+<li>
+<p>speak-human-tw：<a href="https://github.com/Raymondhou0917/speak-human-tw" target="_blank" rel="noopener">https://github.com/Raymondhou0917/speak-human-tw</a></p>
+</li>
+<li>
+<p>Salman Shahid〈The difference between AI-proof and AI-authentic engineering education〉（講者蒐集資料）</p>
+</li>
+<li>HEPI〈AI detectors and the fairness gap〉（講者蒐集資料）</li>
+<li>WGBH〈'Cognitive surrender'〉（講者蒐集資料）</li>
+<li>芭樂人類學〈AI 時代的（大學部）田野教學〉</li>
+</ul><div class="pager"><a href="part2.html">← 二、提示詞構建心法</a><a href="index.html">回首頁 →</a></div></main><footer>國立虎尾科技大學｜AI 教師工作坊教材。各網站與文獻內容以原始來源為準。</footer><script src="assets/qrcode.js"></script><script>
+(function(){var q=document.getElementById('qr');if(q){var u=location.href.split('#')[0].replace(/index\.html$/,'');document.getElementById('url').textContent=u;try{var c=qrcode(0,'M');c.addData(u);c.make();q.innerHTML=c.createImgTag(4,0);}catch(e){}}
+document.querySelectorAll('pre').forEach(function(p){var w=document.createElement('div');w.className='pre-wrap';p.parentNode.insertBefore(w,p);w.appendChild(p);var b=document.createElement('button');b.className='copy';b.textContent='複製';w.appendChild(b);
+b.addEventListener('click',function(){var t=p.innerText;var ok=function(){b.textContent='已複製';setTimeout(function(){b.textContent='複製'},1500)};
+var sel=function(){var r=document.createRange();r.selectNodeContents(p);var s=getSelection();s.removeAllRanges();s.addRange(r);};
+if(navigator.clipboard){navigator.clipboard.writeText(t).then(ok,sel)}else sel();});});})();
+</script></body></html>
