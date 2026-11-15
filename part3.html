@@ -1,53 +1,44 @@
 <!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>三、AI驅動教材設計與論文寫作｜AI 教師工作坊教材</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap"><style>
-:root{--bg:#f6f4ee;--card:#fff;--ink:#1e2a24;--muted:#5b6b62;--line:#e2ddd0;--g:#1f5c46;--g2:#2f7d5f;--soft:#e6efe9;--warn:#fff3e0;--warnb:#e9a23b}
-@media (prefers-color-scheme:dark){:root{--bg:#111714;--card:#18211c;--ink:#e6ede9;--muted:#9fb1a7;--line:#2a3830;--g:#7fd1ad;--g2:#5fb894;--soft:#1f2c25;--warn:#2b2214;--warnb:#c98a2b;color-scheme:dark}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 "Noto Sans TC",system-ui,"PingFang TC","Microsoft JhengHei",sans-serif}
-.hero{background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;padding:48px 16px}
-@media (prefers-color-scheme:dark){.hero{background:linear-gradient(135deg,#123d2e,#1f5c46)}}
-.hin{max-width:960px;margin:0 auto}.eyebrow{margin:0;opacity:.85;letter-spacing:.06em;font-size:14px}
-h1{font-size:clamp(24px,4vw,36px);line-height:1.35;margin:.3em 0;font-weight:900;text-wrap:balance}.lead{margin:0 0 20px;opacity:.95}
-.qrbox{display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.12);border-radius:14px;padding:12px;width:fit-content;max-width:100%}
-#qr{background:#fff;padding:6px;border-radius:8px;line-height:0}#qr img{width:110px;height:110px}.qrbox span{display:block;font-size:12px;opacity:.85;word-break:break-all}
-.toc{position:sticky;top:0;z-index:5;display:flex;gap:6px;overflow-x:auto;padding:10px 16px;background:var(--bg);border-bottom:1px solid var(--line)}
-.toc a{flex:none;color:var(--g);text-decoration:none;font-weight:700;padding:6px 12px;border-radius:999px;background:var(--soft);font-size:14px}
-main{max-width:960px;margin:0 auto;padding:8px 16px 40px}section{padding:28px 0;border-bottom:1px solid var(--line)}
-h2{font-size:26px;font-weight:900;display:flex;gap:12px;align-items:center;margin:0 0 12px}h2 span{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:10px;background:var(--g);color:#fff;font-size:20px}
-@media (prefers-color-scheme:dark){h2 span{color:#0d1a14}}
-h3{font-size:19px;margin:28px 0 8px;color:var(--g)}h4{margin:18px 0 6px}
-.note{font-size:14px;color:var(--muted);background:var(--soft);border-radius:10px;padding:10px 14px}
-.warn{background:var(--warn);border-left:4px solid var(--warnb);padding:10px 14px;border-radius:8px;font-weight:700}
-.prompt{border:1px solid var(--line);border-radius:12px;background:var(--card);margin:10px 0;overflow:hidden}
-.ph{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 12px;background:var(--soft);font-weight:700;font-size:14px}
-.pn{margin:0;padding:6px 12px;font-size:13px;color:var(--muted)}
-.copy{border:0;background:var(--g);color:#fff;border-radius:8px;padding:5px 14px;font:inherit;font-weight:700;cursor:pointer}
-@media (prefers-color-scheme:dark){.copy{color:#0d1a14}}
-pre{margin:0;padding:12px 14px;white-space:pre-wrap;word-break:break-word;font:14px/1.7 "Noto Sans TC",ui-monospace,monospace;max-height:340px;overflow:auto}
-.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card);margin:8px 0}
-table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--soft);color:var(--g)}
-td:first-child{font-weight:700;white-space:nowrap}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin:8px 0}
-.card{display:flex;flex-direction:column;gap:4px;padding:14px;border:1px solid var(--line);border-radius:12px;background:var(--card);text-decoration:none;color:var(--ink)}
-.card:hover{border-color:var(--g)}.card b{color:var(--g)}.card span{font-size:14px;color:var(--muted)}.card small{font-size:12px;color:var(--muted);word-break:break-all}
-.steps{padding-left:22px}.steps li{margin:10px 0}
-.end{text-align:center}.big p{font-size:clamp(22px,4vw,32px);font-weight:900;color:var(--g);margin:.3em 0}
-footer{text-align:center;font-size:13px;color:var(--muted);padding:20px 16px 40px}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap"><script>try{var m=localStorage.getItem('theme');if(m&&m!=='system')document.documentElement.setAttribute('data-theme',m)}catch(e){}</script><style>
+:root{--bg:#f6f4ee;--card:#fff;--ink:#1e2a24;--muted:#5b6b62;--line:#e2ddd0;--g:#1f5c46;--g2:#2f7d5f;--soft:#e6efe9;--warn:#fff3e0;--warnb:#e9a23b;--on:#fff;--h1:#1f5c46;--h2:#2f7d5f;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111714;--card:#18211c;--ink:#e6ede9;--muted:#9fb1a7;--line:#2a3830;--g:#7fd1ad;--g2:#5fb894;--soft:#1f2c25;--warn:#2b2214;--warnb:#c98a2b;--on:#0d1a14;--h1:#123d2e;--h2:#1f5c46;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#111714;--card:#18211c;--ink:#e6ede9;--muted:#9fb1a7;--line:#2a3830;--g:#7fd1ad;--g2:#5fb894;--soft:#1f2c25;--warn:#2b2214;--warnb:#c98a2b;--on:#0d1a14;--h1:#123d2e;--h2:#1f5c46;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 "Noto Sans TC",system-ui,"PingFang TC","Microsoft JhengHei",sans-serif}
 a{color:var(--g)}
-
-.src{color:var(--muted);font-size:13px;white-space:nowrap}
-blockquote{margin:12px 0;padding:2px 0 2px 16px;border-left:3px solid var(--line)}
-blockquote p{margin:.6em 0}
+.hero{background:linear-gradient(135deg,var(--h1),var(--h2));color:#fff;padding:44px 16px}
+.hin{max-width:960px;margin:0 auto}.eyebrow{margin:0;opacity:.85;letter-spacing:.06em;font-size:14px}
+h1{font-size:clamp(24px,4vw,36px);line-height:1.35;margin:.3em 0;font-weight:900;text-wrap:balance}.lead{margin:0 0 4px;opacity:.95}
+.qrbox{display:flex;gap:14px;align-items:center;background:rgba(255,255,255,.12);border-radius:14px;padding:12px;width:fit-content;max-width:100%;margin-top:16px}
+#qr{background:#fff;padding:6px;border-radius:8px;line-height:0}#qr img{width:110px;height:110px}.qrbox span{display:block;font-size:12px;opacity:.85;word-break:break-all}
+.topnav{position:sticky;top:0;z-index:5;display:flex;gap:6px;align-items:center;overflow-x:auto;padding:10px 16px;background:var(--bg);border-bottom:1px solid var(--line)}
+.topnav a{flex:none;color:var(--g);text-decoration:none;font-weight:700;padding:6px 12px;border-radius:999px;background:var(--soft);font-size:14px}
+.topnav a.on{background:var(--g);color:var(--on)}
+.theme{margin-left:auto;flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 12px;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+main{max-width:960px;margin:0 auto;padding:8px 16px 40px}
+section{padding:28px 0;border-bottom:1px solid var(--line)}
+h2{font-size:24px;line-height:1.4;font-weight:900;display:flex;gap:12px;align-items:center;margin:0 0 14px;text-wrap:balance}
+h2 span{flex:none;display:inline-grid;place-items:center;min-width:44px;height:40px;padding:0 8px;border-radius:10px;background:var(--g);color:var(--on);font-size:17px}
+h3{font-size:18px;margin:22px 0 8px;color:var(--g)}h4{margin:18px 0 6px}
+p{margin:.7em 0}
+.note{font-size:14px;color:var(--muted);background:var(--soft);border-radius:10px;padding:10px 14px}
+blockquote{margin:0;padding:0}blockquote p{margin:.7em 0}
+.src{color:var(--muted);font-size:13px}
+.pre-wrap{position:relative;margin:10px 0}
+.pre-wrap pre{margin:0;border:1px solid var(--line);border-radius:12px;background:var(--card);padding:46px 14px 12px;white-space:pre-wrap;word-break:break-word;font:14px/1.7 "Noto Sans TC",ui-monospace,monospace;max-height:360px;overflow:auto}
+.copy{position:absolute;top:8px;right:8px;border:0;background:var(--g);color:var(--on);border-radius:8px;padding:5px 14px;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+code{background:var(--soft);padding:1px 5px;border-radius:5px;font-size:.92em}pre code{background:none;padding:0}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card);margin:10px 0}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--soft);color:var(--g)}
+td:first-child{font-weight:700}
+ul,ol{padding-left:22px}li{margin:4px 0}
+.cards,.parts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin:12px 0}
+.card{display:flex;flex-direction:column;gap:4px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--card);text-decoration:none;color:var(--ink)}
+.card:hover{border-color:var(--g)}.card b{color:var(--g);font-size:17px}.card span{font-size:14px;color:var(--muted)}
+.end{text-align:center}.big p{font-size:clamp(22px,4vw,32px);font-weight:900;color:var(--g);margin:.3em 0}
 .pager{display:flex;justify-content:space-between;gap:10px;margin-top:30px;flex-wrap:wrap}
 .pager a{padding:10px 16px;border:1px solid var(--line);border-radius:10px;background:var(--card);text-decoration:none;font-weight:700}
-.topnav{display:flex;gap:6px;overflow-x:auto;padding:10px 16px;background:var(--bg);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
-.topnav a{flex:none;color:var(--g);text-decoration:none;font-weight:700;padding:6px 12px;border-radius:999px;background:var(--soft);font-size:14px}
-.topnav a.on{background:var(--g);color:#fff}
-.pre-wrap{position:relative}.pre-wrap .copy{position:absolute;top:8px;right:8px}
-.pre-wrap pre{border:1px solid var(--line);border-radius:12px;background:var(--card);padding-top:44px}
-.page-h{background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;padding:32px 16px}
-.page-h h1{margin:0}.page-h p{margin:.4em 0 0;opacity:.92}
-.parts{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin:16px 0}
-</style></head><body><nav class="topnav"><a href="index.html" class="">首頁</a><a href="part1.html" class="">一、AI 素養</a><a href="part2.html" class="">二、提示詞構建心法</a><a href="part3.html" class="on">三、教材設計與論文寫作</a></nav><header class="page-h"><div class="hin"><h1>三、AI驅動教材設計與論文寫作</h1><p>教案、說人話 Skill、教材成果、課堂與評量，以及論文寫作的 AI Agent 流程。</p></div></header><main><p class="note">〔流程文件〕指講者提供的論文寫作流程文件；〔說人話教材〕指講者整理的 speak-human-tw 教學說明。</p><h3 id="3-1">3-1 教師 AI 素養教案：用 AI 備課，也是在學 AI 素養</h3>
+footer{text-align:center;font-size:13px;color:var(--muted);padding:20px 16px 40px}
+</style></head><body><nav class="topnav"><a href="index.html" class="">首頁</a><a href="part1.html" class="">一、AI 素養</a><a href="part2.html" class="">二、提示詞構建心法</a><a href="part3.html" class="on">三、教材設計與論文寫作</a><button class="theme" id="theme" type="button">🌓 系統</button></nav><header class="hero"><div class="hin"><p class="eyebrow">國立虎尾科技大學｜教師工作坊教材</p><h1>三、AI驅動教材設計與論文寫作</h1><p class="lead">教案、說人話 Skill、教材成果、課堂與評量，以及論文寫作的 AI Agent 流程。</p></div></header><main><p class="note">〔流程文件〕指講者提供的論文寫作流程文件；〔說人話教材〕指講者整理的 speak-human-tw 教學說明。</p><section><h2 id="3-1"><span>3-1</span>教師 AI 素養教案：用 AI 備課，也是在學 AI 素養</h2>
 <blockquote>
 <p>先看一個完整的例子：用 AI 備課，同時也是在學 AI 素養。網站：<a href="https://teacher-ai-literacy-course.vercel.app/" target="_blank" rel="noopener">教師AI素養教案</a></p>
 <p>這份教學設計手冊的對象是大學教師。老師在裡面同時有兩個角色：一個是 AI 素養的學習者，一個是教案設計者。核心教材是教育部的《教育與研究之生成式人工智慧應用指引》：老師分析指引、設定學習目標、診斷起點、完成活動，最後做出一份可教、可評量、可驗證的教案。<span class="src">〔教師AI素養教案網站〕</span></p>
@@ -62,7 +53,7 @@ blockquote p{margin:.6em 0}
 </blockquote>
 <p><strong>五項不可破壞的核心原則</strong>：教材要可追溯；每一步一個主要責任；能力要留下證據；AI 協助、人負責；先完成核心教案再談自動化。<span class="src">〔同上〕</span></p>
 <p>網站的 A3 用的是 AI Fluency 4D（Delegation、Description、Discernment、Diligence），和第二部分的提示詞 4D 流程名字一樣、內容不同。</p>
-<h3 id="3-2">3-2 說人話：用 Agent 安裝 Skill，做 before／after 對照</h3>
+</section><section><h2 id="3-2"><span>3-2</span>說人話：用 Agent 安裝 Skill，做 before／after 對照</h2>
 <p><strong>⚠ 使用工具：只用 Agent，不用網頁版</strong></p>
 <blockquote>
 <p>這個實習只能用 Agent，也就是 Claude Code 或 Codex，禁止用 ChatGPT 網頁版和 Claude 網頁版。網頁版不能把 Skill 裝進電腦裡，也不能直接存檔、產生對照檔，做不出 before／after 比較。</p>
@@ -118,7 +109,7 @@ clone 到 ~/.codex/skills/speak-human-tw
 <p>說人話也照心法在做事：先「判情境」、鎖住不能動的內容是限制；「先列清單、等我回覆」是格式；最後檢查日期地點一字沒變，就是交付前的品質檢查。</p>
 <p>公告、講義可以這樣潤飾，整份教材也可以用 AI 做出來。下一節看一個實際的成果。</p>
 </blockquote>
-<h3 id="3-3">3-3 成果介紹：電子學補充教材（以電子學(一)為例）</h3>
+</section><section><h2 id="3-3"><span>3-3</span>成果介紹：電子學補充教材（以電子學(一)為例）</h2>
 <blockquote>
 <p>網站：<a href="https://electronics-supplement.vercel.app/" target="_blank" rel="noopener">電子學補充教材</a>。這個網站是電子學的補充教材，透過範例、模擬和練習輔助學習。<span class="src">〔電子學補充教材網站〕</span></p>
 <ul>
@@ -132,7 +123,7 @@ clone 到 ~/.codex/skills/speak-human-tw
 </li>
 </ul>
 </blockquote>
-<h3 id="3-4">3-4 四階段課堂：做 → 增強 → 挑戰 → 辯護</h3>
+</section><section><h2 id="3-4"><span>3-4</span>四階段課堂：做 → 增強 → 挑戰 → 辯護</h2>
 <blockquote>
 <p>回到我們自己的課堂。1-14 提到的 Shahid 老師，在曼徹斯特大學教化學工程。他試出一個四階段的做法：做（Act）→ 增強（Augment）→ 挑戰（Challenge）→ 辯護（Defend）。他強調順序很重要：AI 應該在學生思考之後才進來，而不是之前。</p>
 <p>第一步，做。先請學生自己試。不一定要算完整個題目，可以是定義問題、確定系統邊界、寫下假設、判斷需要哪些資訊，或說明哪些原理相關。他說，如果自己沒有先發展出方法，就很容易接受 AI 給的方法。</p>
@@ -141,20 +132,22 @@ clone 到 ~/.codex/skills/speak-human-tw
 <p>第四步，辯護。學生把成果交給另一組，對方扮演審查者，質疑假設、計算和建議，原本的小組要回應並說明自己的決定。他問：專業工作裡同事本來就會這樣互相審查，學生為什麼不在畢業前就練習？<span class="src">〔Shahid, Times Higher Education〕</span></p>
 <p>他的結論是：學生基礎知識理解得越透徹，越能批判性地使用 AI。AI 沒有降低老師的角色，而是讓老師更專注在難以自動化的事：設計有意義的問題、挑戰假設、促進討論、給回饋，以及幫學生培養判斷力。<span class="src">〔Shahid〕</span></p>
 </blockquote>
-<h3 id="3-5">3-5 評量改看過程：草稿、版本紀錄、口頭說明</h3>
+</section><section><h2 id="3-5"><span>3-5</span>評量改看過程：草稿、版本紀錄、口頭說明</h2>
 <blockquote>
 <p>評量也可以跟著調整。</p>
 <p>HEPI 的建議是：評量設計要讓作弊變難，並真正重視學習過程，例如草稿、版本紀錄，以及學生說明自己論點的能力。<span class="src">〔HEPI〕</span></p>
 <p>1-10 的布朗大學 Serrano 教授，這學期把作業成績比重降到 0%，每堂課加一個倫理問題，並加上口試。<span class="src">〔WGBH〕</span>亞利桑那州立大學的 Cohen 院長則說，與其一直巡邏抓作弊，不如重新設計作業和課堂，設計要求學生主動學習的課程。<span class="src">〔WGBH〕</span></p>
 <p>台大人類學系的助教也建議：學生揭露 AI 使用不應該扣分，改評推導和思考過程。<span class="src">〔芭樂人類學〕</span></p>
 </blockquote>
-<p><strong>延伸實例：FPGA Verilog 訓練平台</strong>
-- 網址：<a href="https://fpga-training.vercel.app/" target="_blank" rel="noopener">fpga-training.vercel.app</a>
-- 給大學生的 Verilog 練習平台：練習題由初階、中階到進階漸進安排；「自我檢核」讓學習者逐步確認理解、記錄學習進度<span class="src">〔FPGA Verilog 訓練平台網站〕</span></p>
-<blockquote>
+<p><strong>延伸實例：FPGA Verilog 訓練平台</strong></p>
+<ul>
+<li>網址：<a href="https://fpga-training.vercel.app/" target="_blank" rel="noopener">fpga-training.vercel.app</a></li>
+<li>給大學生的 Verilog 練習平台：練習題由初階、中階到進階漸進安排；「自我檢核」讓學習者逐步確認理解、記錄學習進度<span class="src">〔FPGA Verilog 訓練平台網站〕</span><blockquote>
 <p>像這個 FPGA 訓練平台，用「自我檢核」記錄每一步的學習進度，就是把過程留下來的一種做法。</p>
 </blockquote>
-<h3 id="3-6">3-6 論文寫作：從文獻 PDF 到研究計畫書背景的 AI Agent 流程</h3>
+</li>
+</ul>
+</section><section><h2 id="3-6"><span>3-6</span>論文寫作：從文獻 PDF 到研究計畫書背景的 AI Agent 流程</h2>
 <blockquote>
 <p>第二部分的 4D，不只用在一段提示詞，也可以撐起一整條論文寫作的流程。</p>
 <p>這條流程分成三段。第一段是文獻搜尋，負責找文獻、找合法的 PDF、核對題名和版本。第二段把論文 PDF 轉成 Obsidian 可以讀的 Markdown，保留圖片、表格、公式和來源資訊。第三段在文獻資料夾有新資料時，接著撰寫研究計畫書的「研究計畫之背景」。<span class="src">〔流程文件〕</span></p>
@@ -270,16 +263,18 @@ clone 到 ~/.codex/skills/speak-human-tw
 </tr>
 </tbody>
 </table></div>
-<h3 id="3-7">3-7 小結：帶走兩件事</h3>
+</section><section><h2 id="3-7"><span>3-7</span>小結：帶走兩件事</h2>
 <blockquote>
 <p>最後，帶走兩件事。</p>
 <p>第一，<strong>越用越懂，越等越遠。</strong> AI 不是看懂的，是用懂的。用得越多，越清楚它哪裡可靠、哪裡要查證；越晚開始，就越跟不上。</p>
 <p>第二，<strong>一套用到熟，勝過套套都試。</strong> 挑一套適合自己的 AI 工具，固定用下去，不用跟著新工具變來變去。</p>
 <p>寫下一件下週就能用你那一套 AI 做的事。</p>
 </blockquote>
-<p><strong>延伸參考</strong>
-- 研究生培訓指南網站：<a href="https://graduate-training-guide-brgw1h1dt-yangbala-1511s-projects.vercel.app/" target="_blank" rel="noopener">https://graduate-training-guide-brgw1h1dt-yangbala-1511s-projects.vercel.app/</a></p>
-<h2>參考資料</h2>
+<p><strong>延伸參考</strong></p>
+<ul>
+<li>研究生培訓指南網站：<a href="https://graduate-training-guide-brgw1h1dt-yangbala-1511s-projects.vercel.app/" target="_blank" rel="noopener">https://graduate-training-guide-brgw1h1dt-yangbala-1511s-projects.vercel.app/</a></li>
+</ul>
+</section><section><h2><span>📚</span>參考資料</h2>
 <ul>
 <li>教師AI素養教案網站：<a href="https://teacher-ai-literacy-course.vercel.app/" target="_blank" rel="noopener">https://teacher-ai-literacy-course.vercel.app/</a></li>
 <li>電子學補充教材網站：<a href="https://electronics-supplement.vercel.app/" target="_blank" rel="noopener">https://electronics-supplement.vercel.app/</a></li>
@@ -296,9 +291,12 @@ clone 到 ~/.codex/skills/speak-human-tw
 <li>HEPI〈AI detectors and the fairness gap〉（講者蒐集資料）</li>
 <li>WGBH〈'Cognitive surrender'〉（講者蒐集資料）</li>
 <li>芭樂人類學〈AI 時代的（大學部）田野教學〉</li>
-</ul><div class="pager"><a href="part2.html">← 二、提示詞構建心法</a><a href="index.html">回首頁 →</a></div></main><footer>國立虎尾科技大學｜AI 教師工作坊教材。各網站與文獻內容以原始來源為準。</footer><script src="assets/qrcode.js"></script><script>
-(function(){var q=document.getElementById('qr');if(q){var u=location.href.split('#')[0].replace(/index\.html$/,'');document.getElementById('url').textContent=u;try{var c=qrcode(0,'M');c.addData(u);c.make();q.innerHTML=c.createImgTag(4,0);}catch(e){}}
-document.querySelectorAll('pre').forEach(function(p){var w=document.createElement('div');w.className='pre-wrap';p.parentNode.insertBefore(w,p);w.appendChild(p);var b=document.createElement('button');b.className='copy';b.textContent='複製';w.appendChild(b);
+</ul></section><div class="pager"><a href="part2.html">← 二、提示詞構建心法</a><a href="index.html">回首頁 →</a></div></main><footer>國立虎尾科技大學｜AI 教師工作坊教材。各網站與文獻內容以原始來源為準。</footer><script src="assets/qrcode.js"></script><script>
+(function(){var tb=document.getElementById('theme'),L={system:'🌓 系統',light:'☀️ 淺色',dark:'🌙 深色'},cur='system';try{cur=localStorage.getItem('theme')||'system'}catch(e){}
+function ap(m){cur=m;if(m==='system')document.documentElement.removeAttribute('data-theme');else document.documentElement.setAttribute('data-theme',m);tb.textContent=L[m];try{localStorage.setItem('theme',m)}catch(e){}}
+ap(cur);tb.addEventListener('click',function(){ap(cur==='system'?'light':cur==='light'?'dark':'system')});
+var q=document.getElementById('qr');if(q){var u=location.href.split('#')[0].replace(/index\.html$/,'');document.getElementById('url').textContent=u;try{var c=qrcode(0,'M');c.addData(u);c.make();q.innerHTML=c.createImgTag(4,0);}catch(e){}}
+document.querySelectorAll('pre').forEach(function(p){var w=document.createElement('div');w.className='pre-wrap';p.parentNode.insertBefore(w,p);w.appendChild(p);var b=document.createElement('button');b.type='button';b.className='copy';b.textContent='複製';w.appendChild(b);
 b.addEventListener('click',function(){var t=p.innerText;var ok=function(){b.textContent='已複製';setTimeout(function(){b.textContent='複製'},1500)};
 var sel=function(){var r=document.createRange();r.selectNodeContents(p);var s=getSelection();s.removeAllRanges();s.addRange(r);};
 if(navigator.clipboard){navigator.clipboard.writeText(t).then(ok,sel)}else sel();});});})();
