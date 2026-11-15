@@ -39,16 +39,38 @@ ul,ol{padding-left:22px}li{margin:4px 0}
 h2{scroll-margin-top:64px}
 .embed{position:relative;width:100%;height:800px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#070b16;margin:12px 0}.embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 @media (max-width:860px){.embed{height:1150px}}
+.figure{margin:14px 0}.figure img{width:100%;height:auto;border:1px solid var(--line);border-radius:12px;cursor:zoom-in;display:block;background:#fff}
+.figure figcaption{font-size:13px;color:var(--muted);margin-top:6px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(10,14,12,.97);display:flex;flex-direction:column}.lb[hidden]{display:none!important}
+.lb-bar{background:#0f1512;display:flex;gap:8px;align-items:center;justify-content:flex-end;padding:10px max(12px,env(safe-area-inset-right,0px)) 10px 12px;padding-top:calc(10px + env(safe-area-inset-top,0px))}
+.lb-bar button,.lb-bar a{border:0;border-radius:8px;padding:8px 12px;background:#2a3830;color:#fff;font:inherit;font-size:15px;font-weight:700;cursor:pointer;text-decoration:none}
+.lb-bar span{color:#cfe3d8;font-size:14px;margin-right:auto}
+.lb-stage{flex:1;overflow:hidden;position:relative;touch-action:none;cursor:grab}.lb-stage.drag{cursor:grabbing}
+.lb-stage img{position:absolute;left:0;top:0;transform-origin:0 0;max-width:none;user-select:none;-webkit-user-drag:none}
 .end{text-align:center}.big p{font-size:clamp(22px,4vw,32px);font-weight:900;color:var(--g);margin:.3em 0}
 .pager{display:flex;justify-content:space-between;gap:10px;margin-top:30px;flex-wrap:wrap}
 .pager a{padding:10px 16px;border:1px solid var(--line);border-radius:10px;background:var(--card);text-decoration:none;font-weight:700}
 footer{text-align:center;font-size:13px;color:var(--muted);padding:20px 16px 40px}
 </style></head><body><nav class="topnav"><a href="./" class="on">場次目錄</a><button class="theme" id="theme" type="button">🌓 系統</button></nav><header class="hero"><div class="hin"><p class="eyebrow">國立虎尾科技大學｜AI Agent實作教師工作坊</p><h1>AI 教師工作坊：場次目錄</h1><p class="lead">選擇場次，進入該場的完整教材、實習提示詞與表格。</p></div></header>
-<main><section><h2><span>📅</span>場次</h2><div class="parts"><a class="card" href="2026-11-17/"><b>2026-11-17｜國立虎尾科技大學</b><span>AI 素養 × 提示詞構建心法 × AI 驅動教材設計與論文寫作</span></a></div></section></main><footer>國立虎尾科技大學｜AI Agent實作教師工作坊。各網站與文獻內容以原始來源為準。</footer><script src="assets/qrcode.js"></script><script>
+<main><section><h2><span>📅</span>場次</h2><div class="parts"><a class="card" href="2026-11-17/"><b>2026-11-17｜國立虎尾科技大學</b><span>AI 素養 × 提示詞構建心法 × AI 驅動教材設計與論文寫作</span></a></div></section></main><div class="lb" id="lb" hidden><div class="lb-bar"><span>滾輪或雙指縮放，拖曳移動，雙擊放大</span><button type="button" class="lb-out" aria-label="縮小">－</button><span class="lb-pct" style="margin:0;min-width:48px;text-align:center">100%</span><button type="button" class="lb-in" aria-label="放大">＋</button><button type="button" class="lb-fit">符合畫面</button><a class="lb-open" target="_blank" rel="noopener">原圖</a><button type="button" class="lb-x" aria-label="關閉">✕</button></div><div class="lb-stage"><img alt=""></div></div><footer>國立虎尾科技大學｜AI Agent實作教師工作坊。各網站與文獻內容以原始來源為準。</footer><script src="assets/qrcode.js"></script><script>
 (function(){var tb=document.getElementById('theme'),L={system:'🌓 系統',light:'☀️ 淺色',dark:'🌙 深色'},cur='system';try{cur=localStorage.getItem('theme')||'system'}catch(e){}
 function ap(m){cur=m;if(m==='system')document.documentElement.removeAttribute('data-theme');else document.documentElement.setAttribute('data-theme',m);tb.textContent=L[m];try{localStorage.setItem('theme',m)}catch(e){}}
 ap(cur);tb.addEventListener('click',function(){ap(cur==='system'?'light':cur==='light'?'dark':'system')});
-var q=document.getElementById('qr');if(q){var u=location.href.split('#')[0].replace(/index\.html$/,'');document.getElementById('url').textContent=u;try{var c=qrcode(0,'M');c.addData(u);c.make();q.innerHTML=c.createImgTag(4,0);}catch(e){}}
+var q=document.getElementById('qr');
+var lb=document.getElementById('lb');if(lb){var st=lb.querySelector('.lb-stage'),im=st.querySelector('img'),pct=lb.querySelector('.lb-pct'),sc=1,x=0,y=0,base=1;
+function draw(){im.style.transform='translate('+x+'px,'+y+'px) scale('+sc+')';pct.textContent=Math.round(sc/base*100)+'%'}
+function fit(){var r=st.getBoundingClientRect();base=Math.min(r.width/im.naturalWidth,r.height/im.naturalHeight);sc=base;x=(r.width-im.naturalWidth*sc)/2;y=(r.height-im.naturalHeight*sc)/2;draw()}
+function zoomAt(f,cx,cy){var r=st.getBoundingClientRect();cx=cx==null?r.width/2:cx-r.left;cy=cy==null?r.height/2:cy-r.top;var n=Math.min(Math.max(sc*f,base*0.5),base*8);x=cx-(cx-x)*n/sc;y=cy-(cy-y)*n/sc;sc=n;draw()}
+document.querySelectorAll('img.zoomable').forEach(function(z){z.addEventListener('click',function(){im.src=z.dataset.full||z.src;lb.querySelector('.lb-open').href=im.src;lb.hidden=false;document.body.style.overflow='hidden';if(im.complete)fit();else im.onload=fit;})});
+function close(){lb.hidden=true;document.body.style.overflow=''}
+lb.querySelector('.lb-in').onclick=function(){zoomAt(1.25)};lb.querySelector('.lb-out').onclick=function(){zoomAt(0.8)};lb.querySelector('.lb-fit').onclick=fit;lb.querySelector('.lb-x').onclick=close;
+document.addEventListener('keydown',function(e){if(lb.hidden)return;if(e.key==='Escape')close();if(e.key==='+'||e.key==='=')zoomAt(1.25);if(e.key==='-')zoomAt(0.8);if(e.key==='0')fit()});
+st.addEventListener('wheel',function(e){e.preventDefault();zoomAt(e.deltaY<0?1.15:0.87,e.clientX,e.clientY)},{passive:false});
+var pts={},last=null,pd=0;st.addEventListener('pointerdown',function(e){st.setPointerCapture(e.pointerId);pts[e.pointerId]=[e.clientX,e.clientY];st.classList.add('drag')});
+st.addEventListener('pointermove',function(e){if(!pts[e.pointerId])return;var ids=Object.keys(pts);if(ids.length===1){x+=e.clientX-pts[e.pointerId][0];y+=e.clientY-pts[e.pointerId][1];pts[e.pointerId]=[e.clientX,e.clientY];draw()}else if(ids.length===2){pts[e.pointerId]=[e.clientX,e.clientY];var a=pts[ids[0]],b=pts[ids[1]],d=Math.hypot(a[0]-b[0],a[1]-b[1]);if(pd)zoomAt(d/pd,(a[0]+b[0])/2,(a[1]+b[1])/2);pd=d}});
+function up(e){delete pts[e.pointerId];pd=0;if(!Object.keys(pts).length)st.classList.remove('drag')}st.addEventListener('pointerup',up);st.addEventListener('pointercancel',up);
+st.addEventListener('dblclick',function(e){zoomAt(2,e.clientX,e.clientY)});window.addEventListener('resize',function(){if(!lb.hidden)fit()});}
+if(q){var u=location.href.split('#')[0].replace(/index\.html$/,'');document.getElementById('url').textContent=u;try{var c=qrcode(0,'M');c.addData(u);c.make();q.innerHTML=c.createImgTag(4,0);}catch(e){}}
 document.querySelectorAll('pre').forEach(function(p){var w=document.createElement('div');w.className='pre-wrap';p.parentNode.insertBefore(w,p);w.appendChild(p);var b=document.createElement('button');b.type='button';b.className='copy';b.textContent='複製';w.appendChild(b);
 b.addEventListener('click',function(){var t=p.innerText;var ok=function(){b.textContent='已複製';setTimeout(function(){b.textContent='複製'},1500)};
 var sel=function(){var r=document.createRange();r.selectNodeContents(p);var s=getSelection();s.removeAllRanges();s.addRange(r);};
