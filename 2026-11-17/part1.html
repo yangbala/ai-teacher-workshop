@@ -171,64 +171,17 @@ footer{text-align:center;font-size:13px;line-height:1.7;color:var(--muted);paddi
 </code></pre>
 <p>完成後不妨回想：AI 第一次就做對了嗎？若需要修改，你是如何向它描述問題的？這段經驗正是第二部分要討論的起點。須留意的是，這個網頁的票數只存在各自的裝置上；若要讓全班以手機即時投票，還需要額外的後端服務。</p>
 </section><section><h2 id="1-3"><span>1-3</span>實習：讓 AI Agent 自行完成網頁並部署到 Vercel</h2>
-<p>1-2 的網頁是在對話視窗中請 AI 產生，使用者仍需自行複製與操作。本節改由 AI Agent 執行：Agent 會自行建立網頁、測試功能、安裝所需工具，並把網站部署到網路上，使用者只需送出一段提示詞。</p>
+<p>1-2 的網頁是在對話視窗中請 AI 產生。本節接續 1-2，改由 AI Agent 執行：只要送出一句提示詞，Agent 就會依照本頁 1-2 的實習提示詞做出同一個網頁，並直接部署到 Vercel，回報一個手機打得開的網址。</p>
 <p>部署平台選用 Vercel，因為依 <a href="https://vercel.com/docs/deployments/deploy-without-logging-in" target="_blank" rel="noopener">Vercel 官方文件</a>，它允許在不登入的情況下部署，並立即取得正式網址。這類「暫時部署」若未經認領，經過一段時間後便會失效；認領方式（見 <a href="https://vercel.com/docs/deployments/claim-deployments" target="_blank" rel="noopener">Claim Deployments 說明</a>）是開啟認領網址，登入或註冊免費帳號後，選擇要移入的團隊<sup class="cite">[<a href="#ref-vercel-temp">12</a>, <a href="#ref-vercel-claim">13</a>]</sup>。</p>
 <p><strong>操作步驟</strong></p>
 <ol>
 <li>開啟 Claude Code 或 Codex</li>
 <li>送出下方提示詞</li>
-<li>等候 Agent 完成，再以手機開啟它回報的網址，點選選項確認票數會增加</li>
+<li>等候 Agent 完成，再以手機開啟它回報的網址，點選選項確認票數會增加；若 Agent 要求登入 Vercel，回覆「我沒有 Vercel 帳號，請用不用登入的方式部署」即可</li>
 <li>若要長期保留網站，開啟認領網址並註冊免費 Vercel 帳號完成認領；認領網址請勿分享，取得者即可認領該專案<sup class="cite">[<a href="#ref-vercel-claim">13</a>]</sup></li>
 </ol>
 <p><strong>提示詞</strong></p>
-<pre><code>請幫我做一個投票展示網頁，並部署上網。全程你自己完成，不要叫我複製、貼上、打指令或做任何手動操作。
-
-【步驟】
-1. 在目前資料夾建立「投票網頁」資料夾，依下方【網頁規格】做成單一檔案「投票網頁/index.html」
-2. 自己測試：點選項會加票、長條和百分比會更新、切換分頁時各題票數分開、票數歸零正常；有問題自己修正
-3. 檢查電腦有沒有部署需要的工具（Node.js、Vercel CLI），沒有就自己安裝
-4. 用 `vercel deploy --temporary` 把「投票網頁」資料夾部署上網。我沒有 Vercel 帳號，不要登入
-5. 完成後用三行告訴我：網站網址、認領網址（Claim URL）、多久後過期
-
-【網頁規格】
-【版面】
-- 背景淺米白色，整體乾淨、字很大，適合教室投影
-- 最上方是大標題（深墨綠色、粗體），標題下面可以有一行綠色的題目說明
-- 說明下方一排圓角分頁按鈕：左邊小字「開場」後面一顆按鈕，接著小字「現場站」後面兩顆按鈕；目前選中的按鈕是深綠底白字，其他是白底深色字
-- 再往下顯示「已收到票數」和總票數；還沒有票時顯示「等待第一張票」
-- 每個選項一列：左邊是選項文字（有說明的話，下面加一行灰色小字），中間一條長條，右邊顯示「百分比 / 票數」，一開始是「0% / 0」
-- 右上角一個「票數歸零」按鈕，只歸零目前這一題
-
-【三個分頁的題目與選項】
-1. 分頁按鈕「AI 使用頻率」（放在「開場」後面）
-   大標題：生活中使用 AI 的頻率
-   選項（直線前是選項，後面是灰色說明）：
-   - 每天多次｜工作、學習、生活都常用
-   - 每天一次｜每天至少會打開一次
-   - 每週幾次｜需要時才會想起來用
-   - 偶爾使用｜一個月幾次或更少
-   - 幾乎不用｜目前很少接觸 AI 工具
-
-2. 分頁按鈕「① 常用工具」（放在「現場站」後面）
-   大標題：最常使用的 AI 工具
-   選項：ChatGPT、Copilot、Gemini、Claude、NotebookLM、Perplexity、開源／本地模型、其他／沒有
-
-3. 分頁按鈕「④ AI Agent」（放在「現場站」後面）
-   大標題：對 AI Agent 的了解程度
-   題目說明：你覺得自己現在對「AI Agent」這個詞的了解程度是？
-   選項：
-   - 完全沒聽過
-   - 聽過，但不確定跟 Chatbot 有什麼差別
-   - 知道不一樣，但說不出具體差異在哪
-   - 可以說出 Model、Workspace、Skills、Orchestration 等具體組成
-
-【互動】
-- 點一下選項就加 1 票，長條長度和百分比立刻更新
-- 切換分頁時，每一題的票數分開保存
-
-【限制】
-- 全部寫在一個 HTML 檔，不使用資料庫、不需要登入、不連外部網站
-- 不要做 QR Code
+<pre><code>請照 https://yangbala.github.io/ai-teacher-workshop/2026-11-17/part1.html 裡「1-2」的實習提示詞做出投票網頁，直接部署到 Vercel，最後給我網址。
 </code></pre>
 <p><strong>延伸：免費網頁空間比較</strong></p>
 <p>Vercel 並非唯一的免費選擇。下表依小黃老師〈<a href="https://jamespolik.pixnet.net/blog/posts/874540269967331917" target="_blank" rel="noopener">2026 免費網頁空間推薦：GitHub Pages、Vercel、Netlify 完整比較與評價</a>〉，整理三個平台的定位與優缺點，可作為日後挑選平台的參考<sup class="cite">[<a href="#ref-jamespolik">14</a>]</sup>。</p>
