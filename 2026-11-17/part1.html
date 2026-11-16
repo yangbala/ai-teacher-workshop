@@ -171,17 +171,17 @@ footer{text-align:center;font-size:13px;line-height:1.7;color:var(--muted);paddi
 </code></pre>
 <p>完成後不妨回想：AI 第一次就做對了嗎？若需要修改，你是如何向它描述問題的？這段經驗正是第二部分要討論的起點。須留意的是，這個網頁的票數只存在各自的裝置上；若要讓全班以手機即時投票，還需要額外的後端服務。</p>
 </section><section><h2 id="1-3"><span>1-3</span>實習：讓 AI Agent 自行完成網頁並部署到 Vercel</h2>
-<p>1-2 的網頁是在對話視窗中請 AI 產生。本節接續 1-2，改由 AI Agent 執行：只要送出一句提示詞，Agent 就會依照本頁 1-2 的實習提示詞做出同一個網頁，並直接部署到 Vercel，回報一個手機打得開的網址。</p>
+<p>1-2 的網頁是在對話視窗中請 AI 產生。本節接續 1-2，改由 AI Agent 執行：只要送出一句提示詞，Agent 就會把 1-2 做好的投票網頁直接部署到 Vercel，回報一個手機打得開的網址。</p>
 <p>部署平台選用 Vercel，因為依 <a href="https://vercel.com/docs/deployments/deploy-without-logging-in" target="_blank" rel="noopener">Vercel 官方文件</a>，它允許在不登入的情況下部署，並立即取得正式網址。這類「暫時部署」若未經認領，經過一段時間後便會失效；認領方式（見 <a href="https://vercel.com/docs/deployments/claim-deployments" target="_blank" rel="noopener">Claim Deployments 說明</a>）是開啟認領網址，登入或註冊免費帳號後，選擇要移入的團隊<sup class="cite">[<a href="#ref-vercel-temp">12</a>, <a href="#ref-vercel-claim">13</a>]</sup>。</p>
 <p><strong>操作步驟</strong></p>
 <ol>
-<li>開啟 Claude Code 或 Codex</li>
-<li>送出下方提示詞</li>
+<li>把 1-2 做好的投票網頁存成檔案，放在一個資料夾</li>
+<li>在這個資料夾開啟 Claude Code 或 Codex，送出下方提示詞</li>
 <li>等候 Agent 完成，再以手機開啟它回報的網址，點選選項確認票數會增加；若 Agent 要求登入 Vercel，回覆「我沒有 Vercel 帳號，請用不用登入的方式部署」即可</li>
 <li>若要長期保留網站，開啟認領網址並註冊免費 Vercel 帳號完成認領；認領網址請勿分享，取得者即可認領該專案<sup class="cite">[<a href="#ref-vercel-claim">13</a>]</sup></li>
 </ol>
 <p><strong>提示詞</strong></p>
-<pre><code>請照 https://yangbala.github.io/ai-teacher-workshop/2026-11-17/part1.html 裡「1-2」的實習提示詞做出投票網頁，直接部署到 Vercel，最後給我網址。
+<pre><code>將投票網頁直接部署到 Vercel，最後給我網址。
 </code></pre>
 <p><strong>延伸：免費網頁空間比較</strong></p>
 <p>Vercel 並非唯一的免費選擇。下表依小黃老師〈<a href="https://jamespolik.pixnet.net/blog/posts/874540269967331917" target="_blank" rel="noopener">2026 免費網頁空間推薦：GitHub Pages、Vercel、Netlify 完整比較與評價</a>〉，整理三個平台的定位與優缺點，可作為日後挑選平台的參考<sup class="cite">[<a href="#ref-jamespolik">14</a>]</sup>。</p>
