@@ -52,7 +52,7 @@ h2{scroll-margin-top:64px}
 .pager a{padding:10px 16px;border:1px solid var(--line);border-radius:10px;background:var(--card);text-decoration:none;font-weight:700}
 footer{text-align:center;font-size:13px;line-height:1.7;color:var(--muted);padding:20px 16px 40px;max-width:760px;margin:0 auto}footer p{margin:0 0 4px}footer a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 </style></head><body><nav class="topnav"><a href="index.html" class="">首頁</a><a href="part1.html" class="">一、AI 素養</a><a href="part2.html" class="on">二、提示詞構建心法</a><a href="part3.html" class="">三、教材設計與論文寫作</a><button class="theme" id="theme" type="button">🌓 系統</button></nav><header class="hero"><div class="hin"><p class="eyebrow">國立虎尾科技大學｜AI Agent實作教師工作坊｜2026-11-17</p><h1>二、提示詞構建心法</h1><p class="lead">4D 流程 × 五個組成要素 × 品質檢查：把模糊需求變成可執行、可驗證的提示詞。</p></div></header><main><section><h2 id="2-1"><span>2-1</span>從「認知參與」到撰寫提示詞</h2>
-<p>第一部分的結論是：教師必須先成為能思考著使用 AI 的人。落實這一點最直接的起點，就是撰寫提示詞：先拆解需求、診斷缺口，再構建指令，並在交付前檢查。1-6 的小實驗也顯示，即使意思幾乎相同的提示詞，結果也不一定一致；正因如此，更需要把任務說清楚，並在交付前確認。</p>
+<p>第一部分的結論是：教師必須先成為能思考著使用 AI 的人。落實這一點最直接的起點，就是撰寫提示詞：先拆解需求、診斷缺口，再構建指令，並在交付前檢查。1-4 的小實驗也顯示，即使意思幾乎相同的提示詞，結果也不一定一致；正因如此，更需要把任務說清楚，並在交付前確認。</p>
 </section><section><h2 id="2-2"><span>2-2</span>三者分工：4D 管流程、五要素管資訊、品質檢查管交付</h2>
 <p>撰寫提示詞其實要處理三種不同的問題：如何把原始需求逐步轉化為高品質的提示詞，由「4D 流程」處理；提示詞應包含哪些資訊才能讓 AI 正確理解與執行，由「五個組成要素」處理；如何確認提示詞符合原始需求並可執行、可驗證，則由「品質檢查」處理。簡言之，4D 管理優化過程，五要素管理需求資訊，品質檢查管理交付品質<sup class="cite">[<a href="#ref-4d">1</a>]</sup>。</p>
 <p>需要說明的是，這裡的 4D 是實務上的提示詞優化框架，並非所有大型語言模型的官方標準；它也不同於 2-6 提到的 Anthropic「AI 熟練度 4D 框架」，兩者名稱相同、內容不同<sup class="cite">[<a href="#ref-4d">1</a>]</sup>。五個組成要素貫穿 D1 到 D3 的分析，D4 則決定最後保留或省略哪些要素。</p>
@@ -214,14 +214,14 @@ footer{text-align:center;font-size:13px;line-height:1.7;color:var(--muted);paddi
 </section><section><h2 id="2-10"><span>2-10</span>七個常見錯誤與三項最終建議</h2>
 <p>實務上常見七種錯誤：認為五要素必須全部具備，導致簡單任務被過度設計；認為 Role 一定要放在第一位，反而忽略任務；在 D1 就自行補充需求，把推測當成使用者意圖；D2 發現任何缺漏都提問，使對話效率低落；D3 追求越長越好，造成指令冗餘且互相衝突；D4 只交付提示詞，使用者不清楚重要假設；以及缺少品質檢查，指令看似完整卻無法執行<sup class="cite">[<a href="#ref-4d">1</a>]</sup>。</p>
 <p>對應的三項建議是：需求分析應先確認 Task，Role 可以放在提示詞開頭，但不能取代對任務目標的理解；五要素是彈性的檢查架構，不是填空公式；D1 到 D4 是主要流程，但發現缺漏或檢查不通過時，應能回到前面的階段修正<sup class="cite">[<a href="#ref-4d">1</a>]</sup>。</p>
-</section><section><h2 id="2-11"><span>2-11</span>回到 1-4：以 D4 檢查實習提示詞</h2>
-<p>最後回到 1-4 的投票網頁提示詞。由於它已是寫好、可交付的提示詞，適合以 2-8 表格的 D4 欄檢查：是否保留完整任務、必要背景、最終限制與可直接使用的格式<sup class="cite">[<a href="#ref-4d">1</a>]</sup>。</p>
+</section><section><h2 id="2-11"><span>2-11</span>回到 1-2：以 D4 檢查實習提示詞</h2>
+<p>最後回到 1-2 的投票網頁提示詞。由於它已是寫好、可交付的提示詞，適合以 2-8 表格的 D4 欄檢查：是否保留完整任務、必要背景、最終限制與可直接使用的格式<sup class="cite">[<a href="#ref-4d">1</a>]</sup>。</p>
 <div class="tw"><table>
 <thead>
 <tr>
 <th>五要素</th>
 <th>D4 交付</th>
-<th>1-4 實習提示詞</th>
+<th>1-2 實習提示詞</th>
 </tr>
 </thead>
 <tbody>
